@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="/a.dummy">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../micro_service/mcommerce/clientui/src/main/resources/templates/acceuil.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../micro_service/mcommerce/zuul-server/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../motus/src/main/java/exception/PseudoDejaPrisException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../motus/src/main/java/fr/orleans/miage/motus/motus/controller/errors/CustomizedResponseEntityExceptionHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../motus/src/main/java/fr/orleans/miage/motus/motus/controller/errors/ErrorDetails.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/config-server-repo/eureka-server.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/config-server-repo/microservice-client.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/config-server-repo/microservice-friend.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/config-server-repo/microservice-soiree.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/config-server-repo/microservice-user.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/config-server-repo/zuul-server.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/config-server/src/main/java/fr/orleans/miage/projet/groupeJ/configserver/ConfigServerApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/config-server/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/eureka-server/src/main/java/fr/orleans/miage/projet/groupeJ/eurekaserver/EurekaServerApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/eureka-server/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/eureka-server/src/main/resources/bootstrap.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gateway/src/main/java/fr/orleans/miage/projet/groupeJ/gateway/GatewayApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gateway/src/main/java/fr/orleans/miage/projet/groupeJ/gateway/filter/LogFilter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gateway/src/main/resources/bootstrap.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceclient/MicroserviceClientApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceclient/beans/EvenementBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceclient/beans/EvenementOpenDataBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceclient/beans/NotificationBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceclient/beans/SoireeBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceclient/beans/UserBean.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceclient/controller/SoireeController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceclient/controller/UserController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceclient/domain/Login.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceclient/proxies/MicroserviceSoireeProxy.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceclient/proxies/MicroserviceUserProxy.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/resources/bootstrap.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/resources/templates/acceuil.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/resources/templates/addEventPrivate.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/resources/templates/allUsers.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/resources/templates/dashboard.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/resources/templates/detail-amis.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/resources/templates/detail-user.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/resources/templates/inscription.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/resources/templates/login.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-client/src/main/resources/templates/notif.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/java/fr/orleans/miage/projet/groupeJ/microservicefriend/MicroserviceFriendApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/java/fr/orleans/miage/projet/groupeJ/microservicefriend/controller/FriendController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/java/fr/orleans/miage/projet/groupeJ/microservicefriend/controller/UserController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/java/fr/orleans/miage/projet/groupeJ/microservicefriend/dao/FriendRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/java/fr/orleans/miage/projet/groupeJ/microservicefriend/dao/repository/FriendRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/java/fr/orleans/miage/projet/groupeJ/microservicefriend/dao/repository/UserRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/java/fr/orleans/miage/projet/groupeJ/microservicefriend/dao/service/IUser.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/java/fr/orleans/miage/projet/groupeJ/microservicefriend/dao/service/UserImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/java/fr/orleans/miage/projet/groupeJ/microservicefriend/exceptions/FriendAlreadyException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/java/fr/orleans/miage/projet/groupeJ/microservicefriend/model/Friend.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/java/fr/orleans/miage/projet/groupeJ/microservicefriend/model/Notification.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/java/fr/orleans/miage/projet/groupeJ/microservicefriend/model/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/java/model/Friend.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/java/model/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-friend/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/controller/EvenementController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/controller/SoireController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/controller/SoireeController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/dao/SoireeRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/dao/repository/EvenementOpenDataRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/dao/repository/EvenementRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/dao/repository/SoireeRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/dao/service/EvenementImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/dao/service/IEvenement.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/dao/service/ISoiree.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/dao/service/SoireeImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/exceptions/SoireeNotFoundException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/model/Evenement.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/model/EvenementOpenData.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/java/fr/orleans/miage/projet/groupeJ/microservicesoiree/model/Soiree.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-soiree/src/main/resources/bootstrap.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/MicroserviceUserApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/configuration/RedisConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/controller/UserController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/dao/UserDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/dao/UserRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/dao/UserRepositoryImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/dao/repository/UserRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/dao/service/IUser.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/dao/service/UserImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/domain/Follow.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/domain/Login.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/exceptions/ProductNotFoundException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/exceptions/UserAlreadyExistException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/hello/Coffee.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/hello/CoffeeConfiguration.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/hello/CoffeeController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/hello/CoffeeLoader.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/model/Notification.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/model/Toto.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/java/fr/orleans/miage/projet/groupeJ/microserviceuser/model/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/resources/bootstrap.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/microservice-user/src/main/resources/spring-context.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/zuul-server/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/zuul-server/src/main/java/fr/orleans/miage/projet/groupeJ/zuulserver/ZuulServerApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/zuul-server/src/main/java/fr/orleans/miage/projet/groupeJ/zuulserver/filter/LogFilter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/zuul-server/src/main/java/fr/orleans/miage/projet/groupeJ/zuulserver/filter/LogFilterResponse.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/zuul-server/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/zuul-server/src/main/resources/bootstrap.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
