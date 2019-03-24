@@ -12,8 +12,8 @@ public class SoireeBean {
     private String pseudo;
 
     private Collection<String> participant;
-    private Collection<EvenementOpenDataBean> evenementsExterne;
-    private Collection<EvenementBean> evenementsPrivee;
+    private Collection<Long> evenementsExterne;
+    private Collection<Long> evenementsPrivee;
 
     public SoireeBean() {
     }
@@ -50,19 +50,19 @@ public class SoireeBean {
         this.participant = participant;
     }
 
-    public Collection<EvenementOpenDataBean> getEvenementsExterne() {
+    public Collection<Long> getEvenementsExterne() {
         return evenementsExterne;
     }
 
-    public void setEvenementsExterne(Collection<EvenementOpenDataBean> evenementsExterne) {
+    public void setEvenementsExterne(Collection<Long> evenementsExterne) {
         this.evenementsExterne = evenementsExterne;
     }
 
-    public Collection<EvenementBean> getEvenementsPrivee() {
+    public Collection<Long> getEvenementsPrivee() {
         return evenementsPrivee;
     }
 
-    public void setEvenementsPrivee(Collection<EvenementBean> evenementsPrivee) {
+    public void setEvenementsPrivee(Collection<Long> evenementsPrivee) {
         this.evenementsPrivee = evenementsPrivee;
     }
 }

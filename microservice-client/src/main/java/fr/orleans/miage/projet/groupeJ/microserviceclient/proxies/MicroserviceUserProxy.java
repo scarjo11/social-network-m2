@@ -44,6 +44,13 @@ public interface MicroserviceUserProxy {
     Collection<String> getFriendPseudo(@PathVariable("pseudo") String  pseudo);
 
     @GetMapping(value = "/microservice-user/users/notif/{pseudo}")
-    Collection<NotificationBean> getUserNotif(@PathVariable("pseudo") String  pseudo);
+    Collection<NotificationBean> getAllNotifUser(@PathVariable("pseudo") String  pseudo);
 
+   /* @PostMapping(value = "/microservice-user/users/notif/soiree")
+      void updateUser(@RequestBody UserBean  user);*/
+   @PostMapping(value = "/microservice-user/users/notif/soiree")
+     long creerNotifSoiree(@RequestParam("pseudo")String pseudo,
+                                 @RequestParam("amis")String amis,
+                                 @RequestParam("id")long id,
+                                 @RequestParam("nomSoiree")String nomSoiree);
 }

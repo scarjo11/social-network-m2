@@ -8,7 +8,10 @@ public class NotificationBean {
     private  String message;
     private String typeNotif;
     private String status ;
-    private String pseudo;
+    private String pseudoSender;
+    private String pseudoReceiver;
+    private long idSoiree;
+
 
     public NotificationBean() {
     }
@@ -19,6 +22,30 @@ public class NotificationBean {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public long getIdSoiree() {
+        return idSoiree;
+    }
+
+    public void setIdSoiree(long idSoiree) {
+        this.idSoiree = idSoiree;
+    }
+
+    public String getPseudoSender() {
+        return pseudoSender;
+    }
+
+    public void setPseudoSender(String pseudoSender) {
+        this.pseudoSender = pseudoSender;
+    }
+
+    public String getPseudoReceiver() {
+        return pseudoReceiver;
+    }
+
+    public void setPseudoReceiver(String pseudoReceiver) {
+        this.pseudoReceiver = pseudoReceiver;
     }
 
     public String getMessage() {
@@ -45,11 +72,4 @@ public class NotificationBean {
         this.status = status;
     }
 
-    public String getPseudo() {
-        return pseudo;
-    }
-
-    public void setPseudo(String pseudo) {
-        this.pseudo = pseudo;
-    }
 }

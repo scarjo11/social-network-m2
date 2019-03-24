@@ -14,7 +14,7 @@ public class UserBean {
     private String roles;
     private boolean isConnected;
     private Collection<UserBean> friends;
-    private Collection<NotificationBean> notifications;
+    private Collection<Long> notifications;
 
 
     public UserBean() {
@@ -86,11 +86,11 @@ public class UserBean {
         this.friends = friends;
     }
 
-    public Collection<NotificationBean> getNotifications() {
+    public Collection<Long> getNotifications() {
         return notifications;
     }
 
-    public void setNotifications(Collection<NotificationBean> notifications) {
+    public void setNotifications(Collection<Long> notifications) {
         this.notifications = notifications;
     }
 }

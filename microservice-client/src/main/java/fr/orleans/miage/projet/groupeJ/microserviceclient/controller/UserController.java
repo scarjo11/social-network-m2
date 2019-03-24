@@ -25,6 +25,8 @@ public class UserController {
     @Autowired
     private MicroserviceUserProxy microserviceUserProxy;
 
+
+
     @GetMapping(value = "/")
     public String accueil(Model model, @SessionAttribute(value="pseudo", required = false) String pseudo){
 
@@ -51,10 +53,10 @@ public class UserController {
 
         model.addAttribute("users", users);
         UserBean user = microserviceUserProxy.getUserByPseudoMethod(pseudo);
-       // Collection<NotificationBean> notificationBeans = user.getNotifications();
+        Collection<NotificationBean> notif =  microserviceUserProxy.getAllNotifUser(pseudo);
+
         model.addAttribute("user", user);
-        model.addAttribute("notification", user.getNotifications());
-        model.addAttribute("nbreNotif", user.getNotifications().size());
+        model.addAttribute("nbreNotif", notif.size());
         model.addAttribute("pseudo", user.getPseudo());
         model.addAttribute("friends", microserviceUserProxy.getFriendPseudo(user.getPseudo()));
 
@@ -74,6 +76,22 @@ public class UserController {
         return "detail-user";
     }
 
+    @GetMapping("/notification/{pseudoUser}")
+    public String notification(@SessionAttribute(value="pseudo", required = false) String pseudo
+            ,@PathVariable("pseudoUser") String pseudoUser, Model model){
+
+      //  UserBean user = microserviceUserProxy.getUserByPseudoMethod(pseudoUser);
+        Collection<NotificationBean> notif =  microserviceUserProxy.getAllNotifUser(pseudoUser);
+
+     //   model.addAttribute("user", user);
+        model.addAttribute("notification", notif);
+        model.addAttribute("nbreNotif", notif.size());
+        model.addAttribute("pseudo", pseudo);
+        model.addAttribute("follow", new Follow());
+
+        return "notification";
+    }
+
     @GetMapping("/detail-amis/{pseudoUser}")
     public String amisDetail(@SessionAttribute(value="pseudo", required = false) String pseudo
             ,@PathVariable("pseudoUser") String pseudoUser, Model model){
@@ -87,7 +105,7 @@ public class UserController {
         return "detail-amis";
     }
 
-
+/*
     @GetMapping("/notif/{pseudoUser}")
     public String notif(@SessionAttribute(value="pseudo", required = false) String pseudo
             ,@PathVariable("pseudoUser") String pseudoUser, Model model){
@@ -100,7 +118,7 @@ public class UserController {
 
         return "notif";
     }
-
+*/
 
 
     @PostMapping(value = "/login")

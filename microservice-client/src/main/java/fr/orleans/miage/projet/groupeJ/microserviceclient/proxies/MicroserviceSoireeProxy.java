@@ -17,24 +17,10 @@ import java.util.Collection;
 //@FeignClient(name = "microservice-soiree", url = "localhost:8084")
 public interface MicroserviceSoireeProxy {
 
-
-    //eventcontroller
-    @PostMapping(value = "/microservice-soiree/event")
-    ResponseEntity<Long> creerEvenementPrivee(@RequestBody EvenementBean evenement);
-
-    @PostMapping(value = "/microservice-soiree/event/openData")
-    ResponseEntity<Long> openDataEventSave(@RequestBody EvenementOpenDataBean evenementOpenData);
-
-    @GetMapping(value = "/microservice-soiree/event")
-    Iterable<EvenementOpenDataBean> getAllEventOpenData();
-
-    @GetMapping(value = "/microservice-soiree/event/{pseudo}")
-    Collection<EvenementBean> getEventBy(@PathVariable("pseudo") String pseudo);
-
     //soireecontroller
 
     @PostMapping(value = "/microservice-soiree/soiree")
-     ResponseEntity<Long> creerSoiree(@RequestBody SoireeBean soiree);
+     long creerSoiree(@RequestBody SoireeBean soiree);
 
 
     @PostMapping(value = "/microservice-soiree/soiree/participe/{idSoiree}/{idParticipant}")
@@ -42,23 +28,24 @@ public interface MicroserviceSoireeProxy {
                                  @PathVariable("participant") String participant);
 
 
-    @PostMapping(value = "/microservice-soiree/soiree/{idSoiree}/eventPrivate")
-     void ajouterEventPriveeToSoiree(@PathVariable("idSoiree") long idSoiree,
-                                           @RequestBody EvenementBean evenement);
+    @PutMapping(value = "/microservice-soiree/soiree/{idSoiree}/eventPrivate/{idEventPrivate}")
+    public ResponseEntity ajouterEventPriveeToSoiree(@PathVariable("idSoiree") long idSoiree,
+                                           @PathVariable("idEventPrivate") long idEventPrivate);
 
 
-
-    @PostMapping(value = "/microservice-soiree/soiree/{idSoiree}/eventopendata")
+    @PutMapping(value = "/microservice-soiree/soiree/{idSoiree}/eventopendata/{idEventOpenData}")
      void ajouterEventOpenDataToSoiree(@PathVariable("idSoiree") long idSoiree,
-                                             @RequestBody EvenementOpenDataBean evenementOpenData);
-
-
+                                             @PathVariable("idEventOpenData") long idEventOpenData);
 
     @GetMapping(value = "/microservice-soiree/soiree/{idSoiree}")
      SoireeBean getSoireeById(@PathVariable("idSoiree") long idSoiree);
 
 
 
-    @GetMapping(value = "/microservice-soiree/soiree/{pseudo}")
+    @GetMapping(value = "/microservice-soiree/soirees/{pseudo}")
      Collection<SoireeBean> getAllSoiree(@PathVariable("pseudo") String pseudo);
+
+    @PostMapping(value = "/microservice-soiree/soiree/{idSoiree}/participe/{participant}")
+     void addParticipantToSoiree(@PathVariable("idSoiree") long idSoiree,
+                                       @PathVariable("participant") String participant);
 }
