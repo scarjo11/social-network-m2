@@ -1,5 +1,6 @@
 package fr.orleans.miage.projet.groupeJ.microserviceuser.dao.service;
 
+import fr.orleans.miage.projet.groupeJ.microserviceuser.beans.NotificationBean;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.domain.Follow;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.domain.Login;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.exceptions.UserAlreadyConnectedException;
@@ -44,7 +45,7 @@ public interface IUser {
     //retourne tous les users
     public Iterable<User> getAllUser();
 
-    //retourne toutes les notifications recu par le user
-    Collection<Notification> getUserNotif(String pseudo);
-
+     Collection<Notification> getNotifsById(String pseudo);
+     //Notification getNotifById(long id);
+     void updateUserNotif(User u);
 }

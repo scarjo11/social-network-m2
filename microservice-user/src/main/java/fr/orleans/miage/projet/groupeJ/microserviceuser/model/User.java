@@ -28,7 +28,6 @@ public class User {
     private boolean isConnected;
 
     @JsonIgnore
-   // @JsonManagedReference @JsonBackReference
     @ManyToMany( fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name="tbl_friends",
             joinColumns=@JoinColumn(name="followerId"),
@@ -36,8 +35,11 @@ public class User {
     )
     private Collection<User> friends;
 
+   /* @JsonIgnore
     @OneToMany( fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Collection<Notification> notifications;
+    private Collection<Notification> notifications;*/
+   @ElementCollection
+   private Collection<Long> notifications;
 
     public User(String pseudo, String firstName, String lastName, String email, String password) {
         this.pseudo = pseudo;
@@ -53,11 +55,11 @@ public class User {
     public User() {
     }
 
-    public Collection<Notification> getNotifications() {
+    public Collection<Long> getNotifications() {
         return notifications;
     }
 
-    public void setNotifications(Collection<Notification> notifications) {
+    public void setNotifications(Collection<Long> notifications) {
         this.notifications = notifications;
     }
 

@@ -1,5 +1,7 @@
 package fr.orleans.miage.projet.groupeJ.microserviceuser.dao.service;
 
+import fr.orleans.miage.projet.groupeJ.microserviceuser.beans.NotificationBean;
+import fr.orleans.miage.projet.groupeJ.microserviceuser.dao.repository.NotificationRepository;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.dao.repository.UserRepository;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.domain.Follow;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.domain.Login;
@@ -8,6 +10,7 @@ import fr.orleans.miage.projet.groupeJ.microserviceuser.exceptions.UserAlreadyCo
 import fr.orleans.miage.projet.groupeJ.microserviceuser.exceptions.UserNotFoundException;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.model.Notification;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.model.User;
+import fr.orleans.miage.projet.groupeJ.microserviceuser.proxies.MicroserviceNotificationProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +21,15 @@ import java.util.Collection;
  * Created by wilfrid on 14/03/2019.
  */
 @Service
-public class UserImpl implements IUser {
+public class UserImpl implements IUser,INotif {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    NotificationRepository notificationRepository;
+
+
 
     @Override
     public void connexion(Login login) throws UserNotFoundException, UserAlreadyConnectedException {
@@ -77,8 +85,11 @@ public class UserImpl implements IUser {
 
         users.add(friend);
         user1.setFriends(users);
-        friend.getNotifications().add(new Notification("le pseudo " +
-                follow.getPseudo()+" vient de vous follow","follow" ));
+        //ajout d'une notification follow
+        long idNotif = this.creerNotifFollow(follow.getPseudo(), follow.getAmis());
+        friend.getNotifications().add(idNotif);
+       //microserviceNotificationProxy.updateNotification(idNewNotif, follow.getPseudo(), follow.getAmis());
+       // friend.getNotifications().add(newNotif.getId());
         userRepository.save(friend);
         userRepository.save(user1);
 
@@ -99,8 +110,9 @@ public class UserImpl implements IUser {
         users.remove(friend);
 
         user1.setFriends(users);
-        user1.getNotifications().add(new Notification("tu viens  de unfollow " +
-                follow.getAmis()+" .","unfollow" ));
+
+        long idNotif = this.creerNotifUnFollow(follow.getPseudo(), follow.getAmis());
+        user1.getNotifications().add(idNotif);
         userRepository.save(user1);
 
     }
@@ -127,11 +139,77 @@ public class UserImpl implements IUser {
     }
 
     @Override
-    public Collection<Notification> getUserNotif(String pseudo) {
+    public Collection<Notification> getNotifsById(String pseudo) {
         User user = userRepository.getUserByPseudo(pseudo);
+        Collection<Notification> myNotif = new ArrayList<>();
+        Collection<Long> notif = user.getNotifications();
+        for (long idNotif: notif) {
+            myNotif.add( notificationRepository.getNotificationById(idNotif));
+        }
 
-        return user.getNotifications();
+        return  myNotif;
     }
+
+    @Override
+    public void updateUserNotif(User u) {
+        User user = userRepository.getUserByPseudo(u.getPseudo());
+        Collection<Long> notifications = user.getNotifications();
+
+        user.setNotifications(notifications);
+        userRepository.save(user);
+    }
+
+    @Override
+    public Notification getNotifById(long id) {
+        return notificationRepository.getNotificationById(id);
+    }
+
+    @Override
+    public Collection<Notification> getAllNotifByPseudo(String pseudo) {
+        return notificationRepository.getNotificationsByPseudoReceiver(pseudo);
+    }
+
+    @Override
+    public long creerNotifSoiree(String pseudo, String amis, long id, String nomSoiree) {
+        Notification notifSoiree = new Notification();
+        notifSoiree.setMessage("votre ami "+pseudo + " vous invite à la soiree "+ nomSoiree);
+        notifSoiree.setIdSoiree(id);
+        notifSoiree.setPseudoReceiver(amis);
+        notifSoiree.setPseudoSender(pseudo);
+        notifSoiree.setTypeNotif("invite_soiree");
+        Notification n = notificationRepository.save(notifSoiree);
+
+        User user = userRepository.getUserByPseudo(amis);
+        user.getNotifications().add(n.getId());
+        userRepository.save(user);
+        return n.getId();
+    }
+
+    @Override
+    public long creerNotifFollow(String pseudo, String amis) {
+        Notification notifSoiree = new Notification();
+        notifSoiree.setMessage(pseudo +" vous a follow");
+        notifSoiree.setPseudoReceiver(amis);
+        notifSoiree.setPseudoSender(pseudo);
+        notifSoiree.setTypeNotif("follow");
+        Notification n = notificationRepository.save(notifSoiree);
+        return n.getId();
+    }
+
+    @Override
+    public long creerNotifUnFollow(String pseudo, String amis) {
+        Notification notifSoiree = new Notification();
+        notifSoiree.setMessage(" vous avez unfollow" + amis);
+        notifSoiree.setPseudoReceiver(pseudo);
+       // notifSoiree.setPseudoSender(pseudo);
+        notifSoiree.setTypeNotif("unfollow");
+        Notification n = notificationRepository.save(notifSoiree);
+        return n.getId();
+    }
+
+
+    //ici le proxy permet de recuperer la notification
+
 
 
 }

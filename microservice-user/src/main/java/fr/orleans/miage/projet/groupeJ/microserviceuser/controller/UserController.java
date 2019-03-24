@@ -1,12 +1,14 @@
 package fr.orleans.miage.projet.groupeJ.microserviceuser.controller;
 
+import fr.orleans.miage.projet.groupeJ.microserviceuser.beans.NotificationBean;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.dao.service.IUser;
+import fr.orleans.miage.projet.groupeJ.microserviceuser.dao.service.UserImpl;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.domain.Follow;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.domain.Login;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.model.Notification;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.model.User;
+import fr.orleans.miage.projet.groupeJ.microserviceuser.proxies.MicroserviceNotificationProxy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -18,13 +20,11 @@ import java.util.Collection;
  * Created by wilfrid on 02/03/2019.
  */
 @RestController
-@RequestMapping(value ="/"/*, consumes = {MediaType.APPLICATION_JSON_VALUE,
-        MediaType.APPLICATION_FORM_URLENCODED_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE,
-        "application/x-www-form-urlencoded"}*/)
+@RequestMapping(value ="/")
 public class UserController {
 
     @Autowired
-    private IUser facade;
+    private UserImpl facade;
 
 
     //inscription du user
@@ -73,13 +73,7 @@ public class UserController {
 
     }
 
-    @GetMapping(value = "users/notif/{pseudo}")
-    public  Collection<Notification> getNotifUser(@PathVariable("pseudo") String  pseudo){
-        Collection<Notification> notifications = facade.getUserNotif(pseudo);
 
-        return    notifications;
-
-    }
 
 
     @GetMapping(value = "users/{pseudo}")
@@ -98,11 +92,34 @@ public class UserController {
 
     }
 
+    @PostMapping(value = "users/notif/uupdate/soiree")
+    public  void updateUser(@RequestBody User  user){
+         facade.updateUserNotif(user);
+    }
+
+
+    @PostMapping(value = "users/notif/soiree")
+    public  long creerNotifSoiree(@RequestParam("pseudo")String pseudo,
+                                  @RequestParam("amis")String amis,
+                                  @RequestParam("id")long id,
+                                  @RequestParam("nomSoiree")String nomSoiree){
+       long idCree = facade.creerNotifSoiree(pseudo, amis, id, nomSoiree);
+
+        return  idCree;
+    }
+
     @GetMapping(value = "users")
     public  Iterable<User> getAllUser(){
        ;
 
         return   facade.getAllUser();
+
+    }
+
+    @GetMapping("users/notif/{pseudo}")
+    public  Collection<Notification> getAllNotifUser(@PathVariable("pseudo") String  pseudo){
+
+        return   facade.getNotifsById(pseudo);
 
     }
 

@@ -1,5 +1,6 @@
 package fr.orleans.miage.projet.groupeJ.microserviceuser.dao.repository;
 
+import fr.orleans.miage.projet.groupeJ.microserviceuser.model.Notification;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
