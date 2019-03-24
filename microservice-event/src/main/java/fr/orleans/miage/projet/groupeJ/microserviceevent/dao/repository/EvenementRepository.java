@@ -1,7 +1,6 @@
-package fr.orleans.miage.projet.groupeJ.microservicesoiree.dao.repository;
+package fr.orleans.miage.projet.groupeJ.microserviceevent.dao.repository;
 
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.model.Evenement;
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.model.Soiree;
+import fr.orleans.miage.projet.groupeJ.microserviceevent.model.Evenement;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Collection;
@@ -11,4 +10,5 @@ import java.util.Collection;
  */
 public interface EvenementRepository extends CrudRepository<Evenement, Long> {
     Collection<Evenement> getEvenementsByPseudo(String pseudo);
+    Evenement getEvenementById(long id);
 }

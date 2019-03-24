@@ -1,10 +1,9 @@
-package fr.orleans.miage.projet.groupeJ.microservicesoiree.dao.service;
+package fr.orleans.miage.projet.groupeJ.microserviceevent.dao.service;
 
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.dao.repository.EvenementOpenDataRepository;
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.dao.repository.EvenementRepository;
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.model.Evenement;
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.model.EvenementOpenData;
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.model.Soiree;
+import fr.orleans.miage.projet.groupeJ.microserviceevent.dao.repository.EvenementOpenDataRepository;
+import fr.orleans.miage.projet.groupeJ.microserviceevent.dao.repository.EvenementRepository;
+import fr.orleans.miage.projet.groupeJ.microserviceevent.model.Evenement;
+import fr.orleans.miage.projet.groupeJ.microserviceevent.model.EvenementOpenData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,5 +42,15 @@ public class EvenementImpl implements IEvenement {
     public Collection<Evenement> getEventPrviateByPseudo(String pseudo) {
 
         return  evenementRepository.getEvenementsByPseudo(pseudo);
+    }
+
+    @Override
+    public Evenement getEventPrviateById(long id) {
+        return evenementRepository.getEvenementById(id);
+    }
+
+    @Override
+    public EvenementOpenData getEventOpenDataById(long id) {
+        return evenementOpenDataRepository.getEvenementOpenDataById(id);
     }
 }

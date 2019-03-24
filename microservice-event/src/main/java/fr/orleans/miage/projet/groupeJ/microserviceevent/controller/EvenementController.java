@@ -1,11 +1,10 @@
-package fr.orleans.miage.projet.groupeJ.microservicesoiree.controller;
+package fr.orleans.miage.projet.groupeJ.microserviceevent.controller;
 
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.dao.repository.SoireeRepository;
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.dao.service.IEvenement;
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.model.Evenement;
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.model.EvenementOpenData;
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.model.Soiree;
+import fr.orleans.miage.projet.groupeJ.microserviceevent.dao.service.IEvenement;
+import fr.orleans.miage.projet.groupeJ.microserviceevent.model.Evenement;
+import fr.orleans.miage.projet.groupeJ.microserviceevent.model.EvenementOpenData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +13,7 @@ import java.util.Collection;
 /**
  * Created by wilfrid on 06/03/2019.
  */
-@RestController(value = "/event")
+@RestController(value = "/")
 public class EvenementController {
 
     @Autowired
@@ -30,11 +29,11 @@ public class EvenementController {
     }
 
     //sauvegarder les evenement opendata dans notre base
-    @PostMapping(value = "event/openData")
-    public ResponseEntity<Long> openDataEventSave(@RequestBody EvenementOpenData evenementOpenData){
+    @PostMapping(value = "event/openData", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+    public long openDataEventSave(@RequestBody EvenementOpenData evenementOpenData){
         long idEvementOpenData =  facade.creerEventOpenData(evenementOpenData);
 
-        return ResponseEntity.ok(idEvementOpenData);
+        return idEvementOpenData;
 
     }
 
@@ -47,11 +46,24 @@ public class EvenementController {
 
     }
 
-    //recuperer  toutes les soirees
+    //recuperer  tous les events
     @GetMapping(value = "event/{pseudo}")
-    public Collection<Evenement> getEventBy(@PathVariable("pseudo") String pseudo){
+    public Collection<Evenement> getEventByPseudo(@PathVariable("pseudo") String pseudo){
       return   facade.getEventPrviateByPseudo(pseudo);
 
     }
 
+    //recuperer  tous les events
+    @GetMapping(value = "event/private/{id}")
+    public Evenement getEventById(@PathVariable("id") long id){
+        return   facade.getEventPrviateById(id);
+
+    }
+
+    //recuperer  tous les opendata events
+    @GetMapping(value = "event/openData/{id}")
+    public EvenementOpenData getEventOpenDataById(@PathVariable("id") long id){
+        return   facade.getEventOpenDataById(id);
+
+    }
 }

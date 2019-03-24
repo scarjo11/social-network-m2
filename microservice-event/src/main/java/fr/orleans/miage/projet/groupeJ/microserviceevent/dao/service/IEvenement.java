@@ -1,8 +1,7 @@
-package fr.orleans.miage.projet.groupeJ.microservicesoiree.dao.service;
+package fr.orleans.miage.projet.groupeJ.microserviceevent.dao.service;
 
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.model.Evenement;
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.model.EvenementOpenData;
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.model.Soiree;
+import fr.orleans.miage.projet.groupeJ.microserviceevent.model.Evenement;
+import fr.orleans.miage.projet.groupeJ.microserviceevent.model.EvenementOpenData;
 
 import java.util.Collection;
 
@@ -33,4 +32,15 @@ public interface IEvenement {
      * Permet de recuperer tous  evenement privee  d'un utilisateur
      */
     Collection<Evenement> getEventPrviateByPseudo(String pseudo);
+
+    /**
+     * Permet de recuperer tous  evenement privee avec id
+     */
+    Evenement getEventPrviateById(long id);
+
+    /**
+     * Permet de recuperer tous  evenement privee avec id
+     */
+    EvenementOpenData getEventOpenDataById(long id);
+
 }

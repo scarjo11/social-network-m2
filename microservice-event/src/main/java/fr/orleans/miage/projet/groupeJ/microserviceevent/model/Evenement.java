@@ -1,4 +1,4 @@
-package fr.orleans.miage.projet.groupeJ.microservicesoiree.model;
+package fr.orleans.miage.projet.groupeJ.microserviceevent.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -14,20 +14,18 @@ public class Evenement {
     @GeneratedValue
     private long id;
     private String name;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private Date dateEvent;
+    private String dateEvent;
     private String heure;
     private String lieu;
     //pseudo de celui qui a creer leveement privee
     private String pseudo;
 
 
-    @ManyToOne(fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
-    @JoinColumn(name = "soiree_id")
-    private Soiree soiree_int;
+    //l'id de la soiree à associée à levenement
+    private long soireeId;
 
 
-    public Evenement(String name, Date dateEvent, String heure, String lieu, String pseudo) {
+    public Evenement(String name, String dateEvent, String heure, String lieu, String pseudo) {
         this.name = name;
         this.heure = heure;
         this.lieu = lieu;
@@ -38,12 +36,20 @@ public class Evenement {
     public Evenement() {
     }
 
-    public Soiree getSoiree_int() {
-        return soiree_int;
+    public String getDateEvent() {
+        return dateEvent;
     }
 
-    public void setSoiree_int(Soiree soiree_int) {
-        this.soiree_int = soiree_int;
+    public void setDateEvent(String dateEvent) {
+        this.dateEvent = dateEvent;
+    }
+
+    public long getSoireeId() {
+        return soireeId;
+    }
+
+    public void setSoireeId(long soireeId) {
+        this.soireeId = soireeId;
     }
 
     public String getPseudo() {
@@ -62,13 +68,6 @@ public class Evenement {
         this.name = name;
     }
 
-    public Date getDateEvent() {
-        return dateEvent;
-    }
-
-    public void setDateEvent(Date dateEvent) {
-        this.dateEvent = dateEvent;
-    }
 
     public long getId() {
         return id;
