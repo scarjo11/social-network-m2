@@ -8,7 +8,7 @@ import java.util.Date;
 public class EvenementBean {
     private long id;
     private String name;
-    private Date dateEvent;
+    private String dateEvent;
     private String heure;
     private String lieu;
     private String pseudo;
@@ -33,11 +33,11 @@ public class EvenementBean {
         this.name = name;
     }
 
-    public Date getDateEvent() {
+    public String getDateEvent() {
         return dateEvent;
     }
 
-    public void setDateEvent(Date dateEvent) {
+    public void setDateEvent(String dateEvent) {
         this.dateEvent = dateEvent;
     }
 

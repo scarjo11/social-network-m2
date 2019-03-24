@@ -7,14 +7,15 @@ import java.util.Date;
  * Created by wilfrid on 17/03/2019.
  */
 public class EvenementOpenDataBean {
-    private long id;
-    private String name;
-    private Date dateEvent;
-    private String heure;
-    private String lieu;
-    private String lien ;
 
-    private Collection<SoireeBean> soiree_ext;
+    private long id;
+    private String titre;
+    private String placename;
+    private String pricing_info;
+    private Date date_start;
+    private String link;
+    private String adress;
+    private Collection<Long> soireeIds;
 
     public EvenementOpenDataBean() {
     }
@@ -27,52 +28,60 @@ public class EvenementOpenDataBean {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitre() {
+        return titre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitre(String titre) {
+        this.titre = titre;
     }
 
-    public Date getDateEvent() {
-        return dateEvent;
+    public String getPlacename() {
+        return placename;
     }
 
-    public void setDateEvent(Date dateEvent) {
-        this.dateEvent = dateEvent;
+    public void setPlacename(String placename) {
+        this.placename = placename;
     }
 
-    public String getHeure() {
-        return heure;
+    public String getPricing_info() {
+        return pricing_info;
     }
 
-    public void setHeure(String heure) {
-        this.heure = heure;
+    public void setPricing_info(String pricing_info) {
+        this.pricing_info = pricing_info;
     }
 
-    public String getLieu() {
-        return lieu;
+    public Date getDate_start() {
+        return date_start;
     }
 
-    public void setLieu(String lieu) {
-        this.lieu = lieu;
+    public void setDate_start(Date date_start) {
+        this.date_start = date_start;
     }
 
-    public String getLien() {
-        return lien;
+    public String getLink() {
+        return link;
     }
 
-    public void setLien(String lien) {
-        this.lien = lien;
+    public void setLink(String link) {
+        this.link = link;
     }
 
-    public Collection<SoireeBean> getSoiree_ext() {
-        return soiree_ext;
+    public String getAdress() {
+        return adress;
     }
 
-    public void setSoiree_ext(Collection<SoireeBean> soiree_ext) {
-        this.soiree_ext = soiree_ext;
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public Collection<Long> getSoireeIds() {
+        return soireeIds;
+    }
+
+    public void setSoireeIds(Collection<Long> soireeIds) {
+        this.soireeIds = soireeIds;
     }
 }
 
