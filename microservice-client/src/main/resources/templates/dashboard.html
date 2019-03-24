@@ -12,14 +12,7 @@
 <div class="container">
 
     <h1> welcome in your dashbord</h1><p th:text= "${user.pseudo}"></p>
-    <div class="row col-md-2 col-md-offset-2">
-        <div th:if="${msgFollow != null}" > <p th:text= "${msgFollow}"></p></div>
-    </div>
-
-    <div class="row col-md-2 col-md-offset-2">
-        <div th:if="${msgUnfollow != null}" > <p th:text= "${msgUnfollow}"></p></div>
-    </div>
-
+    <div th:if="${msg != null}" > <p th:text= "${msg}"></p></div>
 
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -31,8 +24,10 @@
                 <li><a href="/logout">Logout</a></li>
                 <li><a href="/users">utilisateurs du reseau</a></li>
                 <li><a href="/event">ajouter un evenement privee</a></li>
+                <li><a href="/soiree">ajouter une soiree</a></li>
+                <li><a th:href="@{|/soirees/${user.pseudo}|}">afficher vos soirees</a></li>
                 <li><a th:href="@{|/event/${user.pseudo}|}">afficher vos evenements privees</a></li>
-                <li><a  th:href="@{|/notif/${user.pseudo}|}"><button type="button" class="btn btn-primary">
+                <li><a  th:href="@{|/notification/${user.pseudo}|}"><button type="button" class="btn btn-primary">
                     Notifications <span class="badge badge-light"><p th:text= "${nbreNotif}"></p></span>
                 </button></a></li>
                 <li><a th:href="@{|/detail-user/${user.pseudo}|}">User Infos</a></li>
@@ -43,9 +38,9 @@
 </div>
 
 <div>
-    vos amis(pseudo)
+    vos amis (pseudo)
     <div th:if="${#lists.isEmpty(friends)}">
-        Vous n'avez aucun amis
+        Vous n'avez aucun amis pour le moment
     </div>
 
     <div th:if="${not #lists.isEmpty(friends)}">
