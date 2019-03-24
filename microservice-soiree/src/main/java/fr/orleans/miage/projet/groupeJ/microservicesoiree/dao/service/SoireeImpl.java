@@ -2,8 +2,6 @@ package fr.orleans.miage.projet.groupeJ.microservicesoiree.dao.service;
 
 import fr.orleans.miage.projet.groupeJ.microservicesoiree.dao.repository.SoireeRepository;
 import fr.orleans.miage.projet.groupeJ.microservicesoiree.exceptions.SoireeNotFoundException;
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.model.Evenement;
-import fr.orleans.miage.projet.groupeJ.microservicesoiree.model.EvenementOpenData;
 import fr.orleans.miage.projet.groupeJ.microservicesoiree.model.Soiree;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +19,10 @@ public class SoireeImpl implements ISoiree {
 
     @Override
     public long creerSoiree(Soiree soiree) {
+        //ajout de celui cree la soiree dans les participant
         soireeRepository.save(soiree);
+     //   soiree.getParticipant().add(soiree.getPseudo());
+
         return soiree.getId();
     }
 
@@ -37,7 +38,7 @@ public class SoireeImpl implements ISoiree {
     }
 
     @Override
-    public void ajouterEventToSoiree(long idSoiree, Evenement evenement) {
+    public void ajouterEventToSoiree(long idSoiree, long evenement) {
         Soiree soiree = soireeRepository.getSoireeById(idSoiree);
         if(soiree != null) {
             soiree.getEvenementsPrivee().add(evenement);
@@ -48,7 +49,7 @@ public class SoireeImpl implements ISoiree {
     }
 
     @Override
-    public void ajouterEventOpenDataToSoiree(long idSoiree,  EvenementOpenData evenementOpenData) {
+    public void ajouterEventOpenDataToSoiree(long idSoiree,  long evenementOpenData) {
 
         Soiree soiree = soireeRepository.getSoireeById(idSoiree);
         if(soiree != null) {

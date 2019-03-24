@@ -24,22 +24,13 @@ public class Soiree {
     @ElementCollection
     private Collection<String> participant;
 
-    //evenement recuperer de l'api open data
-    @OneToMany(
-            mappedBy = "soiree_ext",
-            cascade = CascadeType.ALL
-            // orphanRemoval = true
-    )
-    private Collection<EvenementOpenData> evenementsExterne;
+    //liste des evenement (id) openData associé à une soiree
+    @ElementCollection
+    private Collection<Long> evenementsExterne;
 
-
-    @OneToMany(
-            mappedBy = "soiree_int",
-            cascade = CascadeType.ALL
-           // orphanRemoval = true
-    )
-    //evenement creer par l'utilisateur lui meme qui s'ajoute à la soiree
-    private Collection<Evenement> evenementsPrivee;
+    @ElementCollection
+    //liste des evenement privee
+    private Collection<Long> evenementsPrivee;
 
     public Soiree() {
     }
@@ -47,6 +38,7 @@ public class Soiree {
     public Soiree(String nom, String pseudo) {
         this.nom = nom;
         this.pseudo = pseudo;
+        this.participant = new ArrayList<>();
         this.evenementsExterne = new ArrayList<>();
         this.evenementsPrivee = new ArrayList<>();
     }
@@ -83,19 +75,19 @@ public class Soiree {
         this.participant = participant;
     }
 
-    public Collection<EvenementOpenData> getEvenementsExterne() {
+    public Collection<Long> getEvenementsExterne() {
         return evenementsExterne;
     }
 
-    public void setEvenementsExterne(Collection<EvenementOpenData> evenementsExterne) {
+    public void setEvenementsExterne(Collection<Long> evenementsExterne) {
         this.evenementsExterne = evenementsExterne;
     }
 
-    public Collection<Evenement> getEvenementsPrivee() {
+    public Collection<Long> getEvenementsPrivee() {
         return evenementsPrivee;
     }
 
-    public void setEvenementsPrivee(Collection<Evenement> evenementsPrivee) {
+    public void setEvenementsPrivee(Collection<Long> evenementsPrivee) {
         this.evenementsPrivee = evenementsPrivee;
     }
 }
