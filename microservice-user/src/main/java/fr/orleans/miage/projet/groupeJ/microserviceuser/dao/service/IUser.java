@@ -1,6 +1,5 @@
 package fr.orleans.miage.projet.groupeJ.microserviceuser.dao.service;
 
-import fr.orleans.miage.projet.groupeJ.microserviceuser.beans.NotificationBean;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.domain.Follow;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.domain.Login;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.exceptions.UserAlreadyConnectedException;

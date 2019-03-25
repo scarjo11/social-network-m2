@@ -1,13 +1,11 @@
 package fr.orleans.miage.projet.groupeJ.microserviceuser.controller;
 
-import fr.orleans.miage.projet.groupeJ.microserviceuser.beans.NotificationBean;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.dao.service.IUser;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.dao.service.UserImpl;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.domain.Follow;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.domain.Login;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.model.Notification;
 import fr.orleans.miage.projet.groupeJ.microserviceuser.model.User;
-import fr.orleans.miage.projet.groupeJ.microserviceuser.proxies.MicroserviceNotificationProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
