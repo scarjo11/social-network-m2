@@ -1,7 +1,6 @@
 package fr.orleans.miage.projet.groupeJ.microserviceclient.controller;
 
 import fr.orleans.miage.projet.groupeJ.microserviceclient.beans.*;
-import fr.orleans.miage.projet.groupeJ.microserviceclient.domain.Notif;
 import fr.orleans.miage.projet.groupeJ.microserviceclient.proxies.MicroserviceEventProxy;
 import fr.orleans.miage.projet.groupeJ.microserviceclient.proxies.MicroserviceNotificationProxy;
 import fr.orleans.miage.projet.groupeJ.microserviceclient.proxies.MicroserviceSoireeProxy;
