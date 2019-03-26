@@ -12,7 +12,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterModule, Routes} from "@angular/router";
 import { EventListComponent } from './event-list/event-list.component';
 import { ListUsersComponent } from './social-network/list-users/list-users.component';
-import { ListFriendsComponent } from './social-network/list-users/list-friends/list-friends.component';
+import { ListFriendsComponent } from './social-network/list-friends/list-friends.component';
 
 const appRoutes: Routes = [
   {path: 'auth/inscription', component: InscriptionComponent},
