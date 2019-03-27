@@ -6,6 +6,7 @@ import fr.orleans.miage.projet.groupeJ.gateway.domain.Follow;
 import fr.orleans.miage.projet.groupeJ.gateway.domain.Login;
 import fr.orleans.miage.projet.groupeJ.gateway.proxies.MicroserviceUserProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -33,16 +34,25 @@ public class UserController {
         return "acceuil";
     }
 
-    @GetMapping("/users")
+  /*  @GetMapping("/users")
     public String allUsers(Model model){
 
-        Iterable<UserBean> users =  microserviceUserProxy.getAllUser();
+        ResponseEntity<Iterable<UserBean>> users =  microserviceUserProxy.getAllUser();
 
         model.addAttribute("users", users);
 
         return "allUsers";
     }
+*/
+  @GetMapping("/users")
+  public  ResponseEntity<Iterable<UserBean>> allUsers(Model model){
 
+      Iterable<UserBean> users =  microserviceUserProxy.getAllUser();
+
+      model.addAttribute("users", users);
+
+      return ResponseEntity.ok(users);
+  }
     @GetMapping("/dashboard")
     public String dashboard(Model model, @SessionAttribute(value="pseudo", required = false) String pseudo){
 
