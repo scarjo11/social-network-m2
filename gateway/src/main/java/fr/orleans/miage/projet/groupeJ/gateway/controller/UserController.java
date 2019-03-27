@@ -94,19 +94,19 @@ public class UserController {
   }
 
     @GetMapping("/notification/{pseudoUser}")
-    public String notification(@SessionAttribute(value="pseudo", required = false) String pseudo
+    public ResponseEntity<Collection<NotificationBean>> notification(@SessionAttribute(value="pseudo", required = false) String pseudo
             ,@PathVariable("pseudoUser") String pseudoUser, Model model){
 
       //  UserBean user = microserviceUserProxy.getUserByPseudoMethod(pseudoUser);
         Collection<NotificationBean> notif =  microserviceUserProxy.getAllNotifUser(pseudoUser);
 
      //   model.addAttribute("user", user);
-        model.addAttribute("notification", notif);
+    /*    model.addAttribute("notification", notif);
         model.addAttribute("nbreNotif", notif.size());
         model.addAttribute("pseudo", pseudo);
-        model.addAttribute("follow", new Follow());
+        model.addAttribute("follow", new Follow());*/
 
-        return "notification";
+        return ResponseEntity.ok(notif);
     }
 /*
     @GetMapping("/detail-amis/{pseudoUser}")
