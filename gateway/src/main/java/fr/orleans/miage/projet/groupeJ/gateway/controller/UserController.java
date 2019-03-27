@@ -54,7 +54,7 @@ public class UserController {
 
       return ResponseEntity.ok(users);
   }
-    @GetMapping("/dashboard")
+  /*  @GetMapping("/dashboard")
     public String dashboard(Model model, @SessionAttribute(value="pseudo", required = false) String pseudo){
 
         Iterable<UserBean> users =  microserviceUserProxy.getAllUser();
@@ -83,6 +83,15 @@ public class UserController {
 
         return "detail-user";
     }
+*/
+  @GetMapping("/detail-user/{pseudoUser}")
+  public ResponseEntity<UserBean> userDetail(@SessionAttribute(value="pseudo", required = false) String pseudo
+          ,@PathVariable("pseudoUser") String pseudoUser, Model model){
+
+      UserBean user = microserviceUserProxy.getUserByPseudoMethod(pseudoUser);
+
+      return ResponseEntity.ok(user);
+  }
 
     @GetMapping("/notification/{pseudoUser}")
     public String notification(@SessionAttribute(value="pseudo", required = false) String pseudo
@@ -99,7 +108,7 @@ public class UserController {
 
         return "notification";
     }
-
+/*
     @GetMapping("/detail-amis/{pseudoUser}")
     public String amisDetail(@SessionAttribute(value="pseudo", required = false) String pseudo
             ,@PathVariable("pseudoUser") String pseudoUser, Model model){
@@ -112,7 +121,7 @@ public class UserController {
 
         return "detail-amis";
     }
-
+*/
 /*
     @GetMapping("/notif/{pseudoUser}")
     public String notif(@SessionAttribute(value="pseudo", required = false) String pseudo
@@ -130,77 +139,76 @@ public class UserController {
 
 
     @PostMapping(value = "/login")
-    public String login(@ModelAttribute Login login, Model model){
+    public ResponseEntity login(@ModelAttribute Login login, Model model){
 
         microserviceUserProxy.connexion(login);
 
-        UserBean user = microserviceUserProxy.getUserByPseudoMethod(login.getPseudo());
+     /*   UserBean user = microserviceUserProxy.getUserByPseudoMethod(login.getPseudo());
         model.addAttribute("user", user);
         model.addAttribute("pseudo", user.getPseudo());
         model.addAttribute("friends", microserviceUserProxy.getFriendPseudo(user.getPseudo()));
-
-        return "redirect:/dashboard";
+*/
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping(value = "/follow")
-    public String follow(@ModelAttribute Follow follow,
+    public ResponseEntity follow(@ModelAttribute Follow follow,
                          @SessionAttribute(value="pseudo", required = false) String pseudo, Model model){
 
         microserviceUserProxy.follow(follow);
 
-        UserBean user = microserviceUserProxy.getUserByPseudoMethod(pseudo);
+       /* UserBean user = microserviceUserProxy.getUserByPseudoMethod(pseudo);
         model.addAttribute("user", user);
         model.addAttribute("pseudo", user.getPseudo());
         model.addAttribute("msgFollow", "vous avez bien follow" + follow.getAmis());
         model.addAttribute("friends", microserviceUserProxy.getFriendPseudo(pseudo));
+*/
 
-
-        return "redirect:/dashboard";
+        return ResponseEntity.ok().build();
     }
 
 
 
     @PostMapping(value = "/unfollow")
-    public String unfollow(@ModelAttribute Follow follow,
+    public ResponseEntity unfollow(@ModelAttribute Follow follow,
                          @SessionAttribute(value="pseudo", required = false) String pseudo, Model model){
 
         microserviceUserProxy.unfollow(follow);
 
-        UserBean user = microserviceUserProxy.getUserByPseudoMethod(pseudo);
+     /*   UserBean user = microserviceUserProxy.getUserByPseudoMethod(pseudo);
         model.addAttribute("user", user);
         model.addAttribute("pseudo", user.getPseudo());
         model.addAttribute("msgUnfollow", "vous avez bien unfollow " + follow.getAmis());
         model.addAttribute("friends", microserviceUserProxy.getFriendPseudo(pseudo));
 
-
-        return "redirect:/dashboard";
+*/
+        return ResponseEntity.ok().build();
     }
 
-    @GetMapping(value = "/login" )
+  /*  @GetMapping(value = "/login" )
     public String loginTemplate(Model model){
 
         model.addAttribute("login", new Login());
         return "login";
     }
-
+*/
     @PostMapping(value = "/inscription")
-    public String inscription(@ModelAttribute UserBean u, Model model){
+    public ResponseEntity inscription(@ModelAttribute UserBean u, Model model){
 
          microserviceUserProxy.inscription(u);
-        UserBean userBean = microserviceUserProxy.getUserByPseudoMethod(u.getPseudo());
+   /*     UserBean userBean = microserviceUserProxy.getUserByPseudoMethod(u.getPseudo());
         String pseudos = userBean.getPseudo();
-        model.addAttribute("pseudo", pseudos);
+        model.addAttribute("pseudo", pseudos);*/
     //   return "login";
-       return        "redirect:/login";
+       return        ResponseEntity.ok().build();
 
     }
 
 
-    @GetMapping("/inscription")
-    public String inscriptionTemplate(Model model){
+    @GetMapping("/users/friends")
+    public ResponseEntity<Collection<String>> getUserFriends(@RequestParam("pseudo") String pseudo){
 
-        model.addAttribute("user", new UserBean());
-
-        return "inscription";
+       Collection<String> friends =  microserviceUserProxy.getFriendPseudo(pseudo);
+        return ResponseEntity.ok(friends);
     }
 }
