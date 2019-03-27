@@ -9,25 +9,18 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private users: User[] = [];
   private usersConnected: Login[] = [];
 
-  userSubject = new Subject<User[]>();
   loginSubject = new Subject<Login[]>();
 
-  emitUsers() {
-    this.userSubject.next(this.users.slice());
-  }
 
   emitLogin() {
     this.loginSubject.next(this.usersConnected.slice());
   }
 
-  addUser(user: User) {
-    this.users.push(user);
-    this.emitUsers();
+  inscriptionUser(user: User) {
 
-    let url = "http://localhost:8085/inscription";
+    let url = "http://localhost:8095/inscription";
 
     let formData = new FormData();
     formData.append('pseudo', user.pseudo);
@@ -52,9 +45,9 @@ export class AuthService {
 
   connectUser(login: Login) {
     this.usersConnected.push(login)
-    this.emitUsers();
+    this.emitLogin();
 
-    let url = "http://localhost:8085/login";
+    let url = "http://localhost:8095/login";
 
     let formData = new FormData();
     formData.append('pseudo', login.pseudo);
@@ -72,5 +65,8 @@ export class AuthService {
 
       }
     );
+
+    sessionStorage.setItem("userConnected", login.pseudo)
+
   }
 }

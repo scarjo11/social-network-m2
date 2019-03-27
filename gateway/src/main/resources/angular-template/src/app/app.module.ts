@@ -26,16 +26,26 @@ import { ListeEvenementPublicComponent } from './evenements/liste-evenement-publ
 import { ListeEvenementPriveeComponent } from './evenements/liste-evenement-privee/liste-evenement-privee.component';
 import { DashboardComponent } from './social-network/dashboard/dashboard.component';
 import { AuthentificationComponent } from './auth/authentification/authentification.component';
+import {UserService} from "./services/user.service";
 
 const appRoutes: Routes = [
   {path: 'auth', component: AuthentificationComponent},
   {path: 'auth/inscription', component: InscriptionComponent},
   {path: 'auth/login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent},
+  {path: 'get-notification', component: RecupererNotificationParPseudoComponent},
+
+  {path: 'list-users', component: ListUsersComponent},
+
   {path: 'event-public', component: ListeEvenementPublicComponent},
-  {path: 'creat-event-public', component: CreateOpenDataEventComponent},
+  {path: 'create-event-public', component: CreateOpenDataEventComponent},
   {path: 'event-private', component: ListeEvenementPriveeComponent},
-  {path: 'creat-event-private', component: CreateEventPrivateComponent},
+  {path: 'create-event-private', component: CreateEventPrivateComponent},
+
+  {path: 'create-soiree', component: CreateSoireeComponent},
+  {path: 'list-participant-soiree', component: ListeParticipantSoireeComponent},
+  {path: 'soiree/:id', component: SingleSoireeComponent},
+
   {path: '', component: AuthentificationComponent},
 ];
 
@@ -73,7 +83,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

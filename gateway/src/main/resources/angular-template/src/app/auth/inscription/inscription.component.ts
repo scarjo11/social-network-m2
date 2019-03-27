@@ -3,6 +3,7 @@ import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
 import {User} from "../../models/user.model";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-inscription',
@@ -15,6 +16,7 @@ export class InscriptionComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
+              private userService : UserService,
               private router: Router) { }
 
   ngOnInit() {
@@ -40,7 +42,8 @@ export class InscriptionComponent implements OnInit {
       formValue['email'],
       formValue['password'],
     );
-    this.authService.addUser(newUser);
+    this.authService.inscriptionUser(newUser);
+    this.userService.addUser(newUser);
     this.router.navigate(['/auth/login']);
   }
 }
