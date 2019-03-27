@@ -10,7 +10,6 @@ import {AuthGuardService} from "./services/auth-guard.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule, Routes} from "@angular/router";
-import { EventListComponent } from './event-list/event-list.component';
 import { ListUsersComponent } from './social-network/list-users/list-users.component';
 import { ListFriendsComponent } from './social-network/list-friends/list-friends.component';
 import { CreateOpenDataEventComponent } from './evenements/create-open-data-event/create-open-data-event.component';
@@ -33,7 +32,10 @@ const appRoutes: Routes = [
   {path: 'auth/inscription', component: InscriptionComponent},
   {path: 'auth/login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'event', component: EventListComponent},
+  {path: 'event-public', component: ListeEvenementPublicComponent},
+  {path: 'creat-event-public', component: CreateOpenDataEventComponent},
+  {path: 'event-private', component: ListeEvenementPriveeComponent},
+  {path: 'creat-event-private', component: CreateEventPrivateComponent},
   {path: '', component: AuthentificationComponent},
 ];
 
@@ -44,7 +46,6 @@ const appRoutes: Routes = [
     InscriptionComponent,
     LoginComponent,
     HeaderComponent,
-    EventListComponent,
     ListUsersComponent,
     ListFriendsComponent,
     CreateOpenDataEventComponent,
