@@ -25,6 +25,7 @@ import { EnvoyerNotificationComponent } from './notification/envoyer-notificatio
 import { RecupererNotificationParPseudoComponent } from './notification/recuperer-notification-par-pseudo/recuperer-notification-par-pseudo.component';
 import { ListeEvenementPublicComponent } from './evenements/liste-evenement-public/liste-evenement-public.component';
 import { ListeEvenementPriveeComponent } from './evenements/liste-evenement-privee/liste-evenement-privee.component';
+import { DashboardComponent } from './social-network/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
   {path: 'auth/inscription', component: InscriptionComponent},
@@ -53,7 +54,8 @@ const appRoutes: Routes = [
     EnvoyerNotificationComponent,
     RecupererNotificationParPseudoComponent,
     ListeEvenementPublicComponent,
-    ListeEvenementPriveeComponent
+    ListeEvenementPriveeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

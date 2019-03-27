@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       formValue['password'],
     );
     this.authService.connectUser(newLogin);
-    this.router.navigate(['/event']);
+    this.router.navigate(['/dashboard']);
   }
 
 }
