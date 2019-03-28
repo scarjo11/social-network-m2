@@ -71,5 +71,18 @@ public class SoireeImpl implements ISoiree {
 
     }
 
+    @Override
+    public void deleteSoiree(long idSoiree) {
+        Soiree soiree = soireeRepository.getSoireeById(idSoiree);
+        soireeRepository.delete(soiree);
+    }
+
+    @Override
+    public void modifierSoiree(long idSoiree) {
+        Soiree soiree = soireeRepository.getSoireeById(idSoiree);
+        //todo update
+        soireeRepository.save(soiree);
+    }
+
 
 }

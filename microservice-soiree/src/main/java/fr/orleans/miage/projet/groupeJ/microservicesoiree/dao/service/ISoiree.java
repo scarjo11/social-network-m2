@@ -52,6 +52,19 @@ public interface ISoiree {
      */
     void ajouterParticipantToSoiree(long idSoiree, String participant);
 
+    /**
+     * Permet de supprimer   la soiree
+     * @param idSoiree : lid de la soiree
+     */
+    void deleteSoiree(long idSoiree);
+
+
+    /**
+     * Permet de modifier  la soiree
+     * @param idSoiree : lid de la soiree
+     */
+    void modifierSoiree(long idSoiree);
+
 
 
 }
