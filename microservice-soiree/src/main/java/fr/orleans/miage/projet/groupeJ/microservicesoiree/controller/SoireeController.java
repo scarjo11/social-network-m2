@@ -86,7 +86,9 @@ public class SoireeController {
     @DeleteMapping(value = "soiree")
     public ResponseEntity deleteSoiree(@RequestParam("idSoiree") int idSoiree){
 
-        return null;
+        facadeSoiree.deleteSoiree(idSoiree);
+
+        return ResponseEntity.ok().build();
 
     }
 
