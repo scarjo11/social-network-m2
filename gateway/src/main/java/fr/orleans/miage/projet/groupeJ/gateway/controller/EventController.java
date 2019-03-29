@@ -24,33 +24,20 @@ public class EventController {
     MicroserviceEventProxy microserviceEventProxy;
 
 
-    //
-    @GetMapping(value = "event")
-    public String addEvenementPriveeTemplate(Model model,
-                     @SessionAttribute(value="pseudo", required = false) String pseudo){
-
-        model.addAttribute("event", new EvenementBean());
-        model.addAttribute("pseudo", pseudo);
-
-        return "addEventPrivate";
-    }
 
 
     @PostMapping(value = "event")
-    public String addEvenementPrivee(@ModelAttribute EvenementBean evenement, Model model,
+    public ResponseEntity<Long> addEvenementPrivee(@RequestBody EvenementBean evenement,
                                      @SessionAttribute(value="pseudo", required = false) String pseudo){
 
-        microserviceEventProxy.creerEvenementPrivee(evenement);
+       long id =  microserviceEventProxy.creerEvenementPrivee(evenement);
 
-        model.addAttribute("event", new EvenementBean());
-        model.addAttribute("pseudo", pseudo);
-        model.addAttribute("msg", "votre evenement a ete bien ajouté");
 
-        return "addEventPrivate";
+        return ResponseEntity.ok(id);
     }
 
     @PostMapping(value = "event/openData",     consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_FORM_URLENCODED_VALUE})
-    public ResponseEntity<Long> addEvenementPriveess(@RequestBody EvenementOpenDataBean evenement, Model model,
+    public ResponseEntity<Long> addEvenementPriveess(@RequestBody EvenementOpenDataBean evenement,
                                                @SessionAttribute(value="pseudo", required = false) String pseudo){
 
        long id = microserviceEventProxy.openDataEventSave(evenement) ;
@@ -62,13 +49,11 @@ public class EventController {
         return ResponseEntity.ok(id);
     }
     @GetMapping(value = "event/{pseudo}")
-    String getEventByPseudos(@PathVariable("pseudo") String pseudo, Model model){
+    public ResponseEntity<Collection<EvenementBean>> getEventByPseudos(@PathVariable("pseudo") String pseudo, Model model){
 
         Collection<EvenementBean> events =  microserviceEventProxy.getEventByPseudo(pseudo);
-        model.addAttribute("events", events );
-        model.addAttribute("pseudo", pseudo);
 
-        return "allPrivateEvent";
+        return ResponseEntity.ok(events);
     }
 
 

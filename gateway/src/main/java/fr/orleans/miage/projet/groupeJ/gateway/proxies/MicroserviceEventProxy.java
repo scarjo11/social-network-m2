@@ -23,7 +23,7 @@ public interface MicroserviceEventProxy {
 
     //eventcontroller
     @PostMapping(value = "/microservice-event/event")
-    ResponseEntity<Long> creerEvenementPrivee(@RequestBody EvenementBean evenement);
+    Long creerEvenementPrivee(@RequestBody EvenementBean evenement);
 
     @PostMapping(value = "/microservice-event/event/openData", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_FORM_URLENCODED_VALUE})
     long openDataEventSave(@RequestBody EvenementOpenDataBean evenementOpenData);
