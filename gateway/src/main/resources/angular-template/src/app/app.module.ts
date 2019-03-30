@@ -27,6 +27,8 @@ import { ListeEvenementPriveeComponent } from './evenements/liste-evenement-priv
 import { DashboardComponent } from './social-network/dashboard/dashboard.component';
 import { AuthentificationComponent } from './auth/authentification/authentification.component';
 import {UserService} from "./services/user.service";
+import {FollowService} from "./services/follow.service";
+import { SingleUserComponent } from './social-network/single-user/single-user.component';
 
 const appRoutes: Routes = [
   {path: 'auth', component: AuthentificationComponent},
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'get-notification', component: RecupererNotificationParPseudoComponent},
 
-  {path: 'list-users', component: ListUsersComponent},
+  {path: 'users', component: ListUsersComponent},
+  {path: 'users/:pseudo', component: SingleUserComponent},
 
   {path: 'event-public', component: ListeEvenementPublicComponent},
   {path: 'create-event-public', component: CreateOpenDataEventComponent},
@@ -72,6 +75,7 @@ const appRoutes: Routes = [
     ListeEvenementPriveeComponent,
     DashboardComponent,
     AuthentificationComponent,
+    SingleUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,7 +88,8 @@ const appRoutes: Routes = [
   providers: [
     AuthService,
     AuthGuardService,
-    UserService
+    UserService,
+    FollowService
   ],
   bootstrap: [AppComponent]
 })

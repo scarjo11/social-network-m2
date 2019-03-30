@@ -10,11 +10,13 @@ export class UserService {
 
 
   private users: User[] = [];
+  private singleUser: User;
   userSubject = new Subject<User[]>();
 
   emitUsers() {
     this.userSubject.next(this.users.slice());
   }
+
 
   addUser(user: User) {
     this.users.push(user);
@@ -35,4 +37,39 @@ export class UserService {
       }
     );
   }
+
+  getUser(pseudoUser: string){
+
+    let promise = new Promise((resolve, reject) => {
+      let url = "http://localhost:8095/detail-user/" + pseudoUser;
+      this.httpClient.get<User>(url)
+        .toPromise()
+        .then(
+          res => { // Success
+            this.singleUser = res;
+            resolve(res);
+          },
+          msg => { // Error
+            reject(msg);
+          }
+        );
+    });
+    return promise;
+
+
+    /*let url = "http://localhost:8095/detail-user/" + pseudoUser;
+
+        this.httpClient.get<User>(url).subscribe(
+          res => {
+            this.singleUser = res;
+            console.log(this.singleUser);
+          },
+          err => {
+            alert('ERROR !');
+          }
+        );*/
+
+  }
+
+
 }
