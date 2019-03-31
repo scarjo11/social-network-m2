@@ -34,7 +34,7 @@ services:
       - config-server
     restart: always
   microservice-client:
-    image: msclient
+    build: microservice-client
     ports:
       - "8085:8085"
     depends_on:
