@@ -33,7 +33,6 @@ export class ListUsersComponent implements OnInit, OnDestroy {
     this.userService.getAllUsers();
     this.friendService.getAllAmis(this.sessionPseudo);
     //this.friendStatus = this.friendService.isFriend;
-    console.log("tosdwwtot", this.users);
 
     this.userSubscription = this.userService.userSubject.subscribe(
       (users: User[]) => {
@@ -41,15 +40,14 @@ export class ListUsersComponent implements OnInit, OnDestroy {
       }
     );
     this.userService.emitUsers();
-    console.log("tosdtot", this.users);
+
    // this.userFriends  = this.isFriendNoFriend(usersss, friendsss);
 
 
     this.friendSubscription = this.friendService.friendSubject.subscribe(
       (friends: Follow[]) => {
         this.friends = friends;
-        //this.userFriends  = this.isFriendNoFriend(this.users, this.friendService.friendString);
-        console.log('saaaaa', this.users);
+        console.log("users", this.friends);
       }
     );
     this.friendService.emitFriends();
@@ -59,22 +57,6 @@ export class ListUsersComponent implements OnInit, OnDestroy {
   /*onViewUser(pseudoUser: string) {
     this.router.navigate(['users', pseudoUser]);
   }*/
-
-  onFollow(pseudoUser: string) {
-    this.friend = new Follow(this.sessionPseudo, pseudoUser)
-
-    this.friendService.follow(this.friend).then(
-      () => {
-        console.log('Tu as follow !');
-        this.friendService.addFollow(this.friend);
-      }
-    )
-  }
-
-
-test(){
-
-}
 
 
   /*isFriendNoFriend(us, fr ) {

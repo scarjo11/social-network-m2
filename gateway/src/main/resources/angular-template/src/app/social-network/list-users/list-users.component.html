@@ -1,8 +1,8 @@
 <div class="row">
   <ul class="list-group" >
-    <li class="list-group-item" *ngFor="let user of users">
+    <li class="list-group-item" *ngFor="let user of users" >
       <div *ngIf="user.pseudo != sessionPseudo">
-        <h3><a [routerLink]="user.pseudo"> {{ user.pseudo }} </a></h3>
+        <h3><a [routerLink]="['follow', user.pseudo]"> {{ user.pseudo }} </a></h3>
         <!--<button class="btn btn-success" *ngIf="user.pseudo != friend" (click)="onFollow(user.pseudo)">Follow</button>
         <button class="btn btn-danger" *ngIf="user.pseudo == friend">UnFollow</button>-->
       </div>

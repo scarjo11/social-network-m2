@@ -20,25 +20,28 @@ import { AjouterParticipantSoireeComponent } from './soiree/ajouter-participant-
 import { SingleSoireeComponent } from './soiree/single-soiree/single-soiree.component';
 import { AjouterEventPriveSoireeComponent } from './soiree/ajouter-event-prive-soiree/ajouter-event-prive-soiree.component';
 import { AjouterEventOpendataSoireeComponent } from './soiree/ajouter-event-opendata-soiree/ajouter-event-opendata-soiree.component';
-import { EnvoyerNotificationComponent } from './notification/envoyer-notification/envoyer-notification.component';
-import { RecupererNotificationParPseudoComponent } from './notification/recuperer-notification-par-pseudo/recuperer-notification-par-pseudo.component';
 import { ListeEvenementPublicComponent } from './evenements/liste-evenement-public/liste-evenement-public.component';
 import { ListeEvenementPriveeComponent } from './evenements/liste-evenement-privee/liste-evenement-privee.component';
 import { DashboardComponent } from './social-network/dashboard/dashboard.component';
 import { AuthentificationComponent } from './auth/authentification/authentification.component';
 import {UserService} from "./services/user.service";
 import {FollowService} from "./services/follow.service";
-import { SingleUserComponent } from './social-network/single-user/single-user.component';
+import { SingleUserFollowComponent } from './social-network/single-user/single-user-follow/single-user-follow.component';
+import { SingleUserUnfollowComponent } from './social-network/single-user/single-user-unfollow/single-user-unfollow.component';
+import { NotifService} from "./services/notif.service";
+import { NotificationsListComponent } from './social-network/notifications-list/notifications-list.component';
 
 const appRoutes: Routes = [
   {path: 'auth', component: AuthentificationComponent},
   {path: 'auth/inscription', component: InscriptionComponent},
   {path: 'auth/login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'get-notification', component: RecupererNotificationParPseudoComponent},
 
   {path: 'users', component: ListUsersComponent},
-  {path: 'users/:pseudo', component: SingleUserComponent},
+  {path: 'friends', component: ListFriendsComponent},
+  {path: 'users/follow/:pseudo', component: SingleUserFollowComponent},
+  {path: 'users/unfollow/:pseudo', component: SingleUserUnfollowComponent},
+  {path: 'notifications', component: NotificationsListComponent},
 
   {path: 'event-public', component: ListeEvenementPublicComponent},
   {path: 'create-event-public', component: CreateOpenDataEventComponent},
@@ -69,13 +72,13 @@ const appRoutes: Routes = [
     SingleSoireeComponent,
     AjouterEventPriveSoireeComponent,
     AjouterEventOpendataSoireeComponent,
-    EnvoyerNotificationComponent,
-    RecupererNotificationParPseudoComponent,
     ListeEvenementPublicComponent,
     ListeEvenementPriveeComponent,
     DashboardComponent,
     AuthentificationComponent,
-    SingleUserComponent,
+    SingleUserFollowComponent,
+    SingleUserUnfollowComponent,
+    NotificationsListComponent
   ],
   imports: [
     BrowserModule,
@@ -89,6 +92,7 @@ const appRoutes: Routes = [
     AuthService,
     AuthGuardService,
     UserService,
+    NotifService,
     FollowService
   ],
   bootstrap: [AppComponent]
