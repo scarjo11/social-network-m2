@@ -1,5 +1,6 @@
 package fr.orleans.miage.projet.groupeJ.microserviceevent.dao.service;
 
+import fr.orleans.miage.projet.groupeJ.microserviceevent.exceptions.EventNotFoundException;
 import fr.orleans.miage.projet.groupeJ.microserviceevent.model.Evenement;
 import fr.orleans.miage.projet.groupeJ.microserviceevent.model.EvenementOpenData;
 
@@ -36,11 +37,11 @@ public interface IEvenement {
     /**
      * Permet de recuperer tous  evenement privee avec id
      */
-    Evenement getEventPrviateById(long id);
+    Evenement getEventPrviateById(long id) throws EventNotFoundException;
 
     /**
      * Permet de recuperer tous  evenement privee avec id
      */
-    EvenementOpenData getEventOpenDataById(long id);
+    EvenementOpenData getEventOpenDataById(long id) throws EventNotFoundException;
 
 }

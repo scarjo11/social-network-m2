@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-9 col-lg-10 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <div class="alert alert-success" role="alert">
+            <h1 class="card-title text-center">Notifications</h1>
+          </div>
+          <p>Vos notifications Nbre :  <p>nbreNotif</p>
+          <div each="noti : ${notification}"class="col-md-4 my-1">
+            <p>noti.message</p>
+            <p>noti.typeNotif</p>
+            <p  if="${noti.idSoiree} != 0  ">
+              <a href="@{|/soiree/notif/${noti.idSoiree}|}">Details</a></p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@ package fr.orleans.miage.projet.groupeJ.microserviceevent.dao.service;
 
 import fr.orleans.miage.projet.groupeJ.microserviceevent.dao.repository.EvenementOpenDataRepository;
 import fr.orleans.miage.projet.groupeJ.microserviceevent.dao.repository.EvenementRepository;
+import fr.orleans.miage.projet.groupeJ.microserviceevent.exceptions.EventNotFoundException;
 import fr.orleans.miage.projet.groupeJ.microserviceevent.model.Evenement;
 import fr.orleans.miage.projet.groupeJ.microserviceevent.model.EvenementOpenData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,12 +46,20 @@ public class EvenementImpl implements IEvenement {
     }
 
     @Override
-    public Evenement getEventPrviateById(long id) {
-        return evenementRepository.getEvenementById(id);
+    public Evenement getEventPrviateById(long id) throws EventNotFoundException {
+        Evenement evenement =  evenementRepository.getEvenementById(id);
+        if(evenement==null)
+            throw new EventNotFoundException("l'evenement avec "+ id+" n'existe pas");
+
+        return evenement;
     }
 
     @Override
-    public EvenementOpenData getEventOpenDataById(long id) {
-        return evenementOpenDataRepository.getEvenementOpenDataById(id);
+    public EvenementOpenData getEventOpenDataById(long id) throws EventNotFoundException {
+        EvenementOpenData evenement =  evenementOpenDataRepository.getEvenementOpenDataById(id);
+        if(evenement==null)
+            throw new EventNotFoundException("l'evenement avec "+ id+" n'existe pas");
+
+        return evenement;
     }
 }
