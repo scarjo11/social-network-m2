@@ -3,7 +3,6 @@
     <div th:if="${msg != null}" > <p th:text= "${msg}"></p></div>
 
   </div>
-  <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-9 mx-auto">
         <div class="card card-signin my-5">
@@ -12,32 +11,30 @@
             <h5 class="card-title text-center">Private Event</h5>
             </div>
             <!-- <form class="form-signin" action="/login" method="post" > -->
-            <form action="#" th:action="@{/event}" th:object="${event}" method="post">
+            <form [formGroup]="eventPrivateForm" (ngSubmit)="onSubmitForm()">
+              <div class="form-label-group">
+                <input type="text" id="name" formControlName="name" class="form-control" placeholder="donnez un nom a votre evenement" autofocus/>
+              </div>
+              <div class="form-label-group">
+                <input type="text" id="dateEvent" formControlName="dateEvent" class="form-control" placeholder="10/10/2000" autofocus/>
+              </div>
+              <div class="form-label-group">
+                <input type="text" id="heure" formControlName="heure" class="form-control" placeholder="heure" autofocus/>
+              </div>
+              <div class="form-label-group">
+                <input type="text" id="lieu" formControlName="lieu" value="" class="form-control" placeholder="lieu" autofocus/>
+              </div>
+              <div class="form-label-group">
+                <input type="hidden" id="pseudo" formControlName="pseudo" value="{{sessionPseudo}}" autofocus/>
+              </div>
 
-              <div class="form-label-group">
-                <input type="text" id="name" name="name" value="" class="form-control" placeholder="donnez un nom a votre evenement" required autofocus/>
-              </div>
-              <div class="form-label-group">
-                <input type="text" id="dateEvent" name="dateEvent" value="" class="form-control" placeholder="10/10/2000" required autofocus/>
-              </div>
-              <div class="form-label-group">
-                <input type="text" id="heure" name="heure" value="" class="form-control" placeholder="heure" required autofocus/>
-              </div>
-              <div class="form-label-group">
-                <input type="text" id="lieu" name="lieu" value="" class="form-control" placeholder="lieu" required autofocus/>
-              </div>
-              <div class="form-label-group">
-                <input type="hidden" id="pseudo" name="pseudo" th:value="${pseudo != null} ? ${pseudo} : ''" required autofocus/>
-              </div>
-
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Create</button>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" [disabled]="eventPrivateForm.invalid" type="submit">Create</button>
             </form>
           </div>
         </div>
       </div>
     </div>
 
-  </div>
 </form>
 
 

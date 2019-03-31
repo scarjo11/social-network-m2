@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Subscription} from "rxjs";
+import {Router} from "@angular/router";
+import {EventService} from "../../services/event.service";
+import {EventPrivate} from "../../models/eventPrivate.model";
 
 @Component({
   selector: 'app-liste-evenement-privee',
@@ -7,9 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeEvenementPriveeComponent implements OnInit {
 
-  constructor() { }
+  eventsPrivate: EventPrivate[];
+  eventSubscription: Subscription;
+
+  sessionPseudo = sessionStorage.getItem("userConnected");
+
+  constructor(private eventService: EventService,
+              private router: Router) { }
 
   ngOnInit() {
+    this.eventService.getAllEventPrivate(this.sessionPseudo)
+
+    this.eventSubscription = this.eventService.eventPrivateSubject.subscribe(
+      (eventsPrivate: EventPrivate[]) => {
+        this.eventsPrivate = eventsPrivate;
+      }
+    );
+    this.eventService.emitEventPrivate()
+
+  }
+
+  ngOnDestroy() {
+    this.eventSubscription.unsubscribe();
   }
 
 }

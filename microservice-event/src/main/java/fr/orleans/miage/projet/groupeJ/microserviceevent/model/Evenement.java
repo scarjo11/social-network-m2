@@ -20,10 +20,10 @@ public class Evenement {
     @GeneratedValue
     private long id;
     private String name;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    /*@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonSerialize(using = LocalDateSerializer.class)
-    private LocalDate dateEvent;
+    @JsonSerialize(using = LocalDateSerializer.class)*/
+    private String dateEvent;
     private String heure;
     private String lieu;
     //pseudo de celui qui a creer leveement privee
@@ -34,7 +34,7 @@ public class Evenement {
     private long soireeId;
 
 
-    public Evenement(String name, LocalDate dateEvent, String heure, String lieu, String pseudo) {
+    public Evenement(String name, String dateEvent, String heure, String lieu, String pseudo) {
         this.name = name;
         this.heure = heure;
         this.lieu = lieu;
@@ -45,11 +45,11 @@ public class Evenement {
     public Evenement() {
     }
 
-    public LocalDate getDateEvent() {
+    public String getDateEvent() {
         return dateEvent;
     }
 
-    public void setDateEvent(LocalDate dateEvent) {
+    public void setDateEvent(String dateEvent) {
         this.dateEvent = dateEvent;
     }
 

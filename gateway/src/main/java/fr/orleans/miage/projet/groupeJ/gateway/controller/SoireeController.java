@@ -16,6 +16,7 @@ import java.util.Collection;
 /**
  * Created by wilfrid on 17/03/2019.
  */
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Controller
 @SessionAttributes("pseudo")
 public class SoireeController {

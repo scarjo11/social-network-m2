@@ -1,5 +1,7 @@
 package fr.orleans.miage.projet.groupeJ.gateway.beans;
 
+import java.util.Date;
+
 /**
  * Created by wilfrid on 17/03/2019.
  */

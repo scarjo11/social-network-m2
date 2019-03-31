@@ -15,6 +15,7 @@ import java.util.Collection;
 /**
  * Created by wilfrid on 17/03/2019.
  */
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Controller
 @SessionAttributes("pseudo")
 public class EventController {
@@ -26,7 +27,7 @@ public class EventController {
 
 
 
-    @PostMapping(value = "event")
+    @PostMapping(value = "/event", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_FORM_URLENCODED_VALUE})
     public ResponseEntity<Long> addEvenementPrivee(@RequestBody EvenementBean evenement,
                                      @SessionAttribute(value="pseudo", required = false) String pseudo){
 
@@ -52,6 +53,14 @@ public class EventController {
     public ResponseEntity<Collection<EvenementBean>> getEventByPseudos(@PathVariable("pseudo") String pseudo, Model model){
 
         Collection<EvenementBean> events =  microserviceEventProxy.getEventByPseudo(pseudo);
+
+        return ResponseEntity.ok(events);
+    }
+
+    @GetMapping(value = "event/private/{id}")
+    public ResponseEntity<EvenementBean> getEventById(@PathVariable("id") long id){
+
+        EvenementBean events =  microserviceEventProxy.getEventById(id);
 
         return ResponseEntity.ok(events);
     }

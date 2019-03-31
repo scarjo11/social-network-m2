@@ -31,6 +31,10 @@ import { SingleUserUnfollowComponent } from './social-network/single-user/single
 import { NotifService} from "./services/notif.service";
 import { NotificationsListComponent } from './social-network/notifications-list/notifications-list.component';
 
+import {EventService} from "./services/event.service";
+import { SingleEventPrivateComponent } from './evenements/single-event-private/single-event-private.component';
+import {DatePipe} from "@angular/common";
+
 const appRoutes: Routes = [
   {path: 'auth', component: AuthentificationComponent},
   {path: 'auth/inscription', component: InscriptionComponent},
@@ -47,6 +51,7 @@ const appRoutes: Routes = [
   {path: 'create-event-public', component: CreateOpenDataEventComponent},
   {path: 'event-private', component: ListeEvenementPriveeComponent},
   {path: 'create-event-private', component: CreateEventPrivateComponent},
+  {path: 'event-private/:id', component: SingleEventPrivateComponent},
 
   {path: 'create-soiree', component: CreateSoireeComponent},
   {path: 'list-participant-soiree', component: ListeParticipantSoireeComponent},
@@ -78,7 +83,8 @@ const appRoutes: Routes = [
     AuthentificationComponent,
     SingleUserFollowComponent,
     SingleUserUnfollowComponent,
-    NotificationsListComponent
+    NotificationsListComponent,
+    SingleEventPrivateComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +99,9 @@ const appRoutes: Routes = [
     AuthGuardService,
     UserService,
     NotifService,
-    FollowService
+    FollowService,
+    EventService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
