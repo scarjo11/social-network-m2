@@ -55,21 +55,6 @@ export class UserService {
         );
     });
     return promise;
-
-
-    /*let url = "http://localhost:8095/detail-user/" + pseudoUser;
-
-        this.httpClient.get<User>(url).subscribe(
-          res => {
-            this.singleUser = res;
-            console.log(this.singleUser);
-          },
-          err => {
-            alert('ERROR !');
-          }
-        );*/
-
   }
-
 
 }

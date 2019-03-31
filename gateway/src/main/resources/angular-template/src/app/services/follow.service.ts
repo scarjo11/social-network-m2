@@ -10,8 +10,6 @@ export class FollowService {
 
 
   private friends: Follow[] = [];
-  public friendString: string[];
-  isFriend = false;
   friendSubject = new Subject<Follow[]>();
 
   emitFriends() {
@@ -19,10 +17,10 @@ export class FollowService {
   }
 
 
-  addFollow(friend: Follow) {
+  /*addFollow(friend: Follow) {
     this.friends.push(friend);
     this.emitFriends();
-  }
+  }*/
 
   getAllAmis(pseudo: string){
 
@@ -34,7 +32,6 @@ export class FollowService {
     this.httpClient.get<any[]>(url, {params: params}).subscribe(
       res => {
         this.friends = res;
-        this.friendString = res;
         this.emitFriends();
       },
       err => {
@@ -65,23 +62,30 @@ export class FollowService {
         );
     });
     return promise;
+  }
 
-    /*let url = "http://localhost:8095/follow";
-    console.log(friend);
+  unfollow(friend: Follow){
 
-    let formData = new FormData();
-    formData.append('pseudo', friend.pseudo);
-    formData.append('amis', friend.pseudoAmi);
+    let promise = new Promise((resolve, reject) => {
+      let url = "http://localhost:8095/unfollow";
+      let formData = new FormData();
+      formData.append('pseudo', friend.pseudo);
+      formData.append('amis', friend.pseudoAmi);
 
-    this.httpClient.post<any>(url, formData).subscribe(
-      res => {
-        this.isFriend = true;
-        formData = res;
-      },
-      err => {
-        console.log('ERROR !');
-      }
-    );*/
+      this.httpClient.post<any>(url, formData)
+        .toPromise()
+        .then(
+          res => {
+            setTimeout(
+              () => {
+                //this.isFriend = true;
+                resolve(true);
+              }, 2000
+            )
+          },
+        );
+    });
+    return promise;
   }
 
 }
