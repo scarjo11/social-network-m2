@@ -10,26 +10,10 @@ import {Subscription} from "rxjs";
 })
 export class HeaderComponent implements OnInit {
 
-  notifs: NotificationEvent[];
-  notifSubscription: Subscription;
-  sessionPseudo = sessionStorage.getItem("userConnected");
-
-  constructor(private notifService: NotifService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.notifService.getNotifications(this.sessionPseudo);
 
-    this.notifSubscription = this.notifService.notifSubject.subscribe(
-      (notif: NotificationEvent[]) => {
-        this.notifs = notif;
-        console.log('taille', this.notifs.length);
-      }
-    );
-    this.notifService.emitNotif();
-  }
-
-  ngOnDestroy() {
-    this.notifSubscription.unsubscribe();
   }
 
 }
