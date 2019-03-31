@@ -1,8 +1,14 @@
 package fr.orleans.miage.projet.groupeJ.microserviceevent.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -14,7 +20,10 @@ public class Evenement {
     @GeneratedValue
     private long id;
     private String name;
-    private String dateEvent;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    private LocalDate dateEvent;
     private String heure;
     private String lieu;
     //pseudo de celui qui a creer leveement privee
@@ -25,7 +34,7 @@ public class Evenement {
     private long soireeId;
 
 
-    public Evenement(String name, String dateEvent, String heure, String lieu, String pseudo) {
+    public Evenement(String name, LocalDate dateEvent, String heure, String lieu, String pseudo) {
         this.name = name;
         this.heure = heure;
         this.lieu = lieu;
@@ -36,11 +45,11 @@ public class Evenement {
     public Evenement() {
     }
 
-    public String getDateEvent() {
+    public LocalDate getDateEvent() {
         return dateEvent;
     }
 
-    public void setDateEvent(String dateEvent) {
+    public void setDateEvent(LocalDate dateEvent) {
         this.dateEvent = dateEvent;
     }
 
