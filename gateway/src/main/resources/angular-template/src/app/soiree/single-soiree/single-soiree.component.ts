@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Soiree} from "../../models/soiree.model";
 import {SoireeService} from "../../services/soiree.service";
 import {EventOpenData} from "../../models/eventOpenData.model";
+import {ignore} from "selenium-webdriver/testing";
 
 @Component({
   selector: 'app-single-soiree',
@@ -37,7 +38,9 @@ export class SingleSoireeComponent implements OnInit {
     this.soireeService.getSoiree(id).then(
       (soiree: Soiree) => {
         this.singleSoiree = soiree;
+        // @ts-ignore: Unreachable code error
         this.eventPrivateID = soiree.evenementsPrivee;
+        // @ts-ignore: Unreachable code error
         this.eventOpenDataID = soiree.evenementsExterne;
 
 
