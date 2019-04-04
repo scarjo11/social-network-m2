@@ -34,11 +34,12 @@ export class SoireeService {
   createSoiree(soiree: Soiree){
 
     let url = "http://localhost:8095/soiree";
+    //sessionStorage.removeItem("idsoiree");
 
     this.httpClient.post<any>(url, soiree).subscribe(
       res => {
-        sessionStorage.removeItem(this.idSoiree);
-        sessionStorage.setItem(this.idSoiree, res);
+        sessionStorage.setItem("idsoiree" , res);
+        console.log("service",sessionStorage.getItem("idsoiree"));
       },
       err => {
         console.log('ERROR Soiree !');
@@ -122,5 +123,19 @@ ajouterEventPriveASoiree(idSoiree: number, idEventPrivate: number){
       }
     );
   }
+
+  participeToSoiree(idSoiree: number){
+    let url = "http://localhost:8095/soiree/"+idSoiree+"/participe/"+this.sessionPseudo;
+
+    this.httpClient.post<any>(url, idSoiree).subscribe(
+      res => {
+        console.log('Notif participation confirmee !')
+      },
+      err => {
+        console.log('ERROR participation !');
+      }
+    );
+  }
+
 
 }

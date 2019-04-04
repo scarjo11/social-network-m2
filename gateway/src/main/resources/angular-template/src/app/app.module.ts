@@ -37,6 +37,7 @@ import {DatePipe} from "@angular/common";
 import {SoireeService} from "./services/soiree.service";
 import { ListeSoireeComponent } from './soiree/liste-soiree/liste-soiree.component';
 import { NotifSoireeComponent } from './soiree/notif-soiree/notif-soiree.component';
+import {DetailNotifSoireeComponent} from "./social-network/detail-notif-soiree/detail-notif-soiree.component";
 
 const appRoutes: Routes = [
   {path: 'auth', component: AuthentificationComponent},
@@ -60,6 +61,7 @@ const appRoutes: Routes = [
   {path: 'list-participant-soiree', component: ListeParticipantSoireeComponent},
   {path: 'list-soiree', component: ListeSoireeComponent},
   {path: 'soiree/:id', component: SingleSoireeComponent},
+  {path: 'soiree/detail-soiree/:id', component: DetailNotifSoireeComponent},
 
   {path: '', component: AuthentificationComponent},
 ];
@@ -90,7 +92,8 @@ const appRoutes: Routes = [
     NotificationsListComponent,
     SingleEventPrivateComponent,
     ListeSoireeComponent,
-    NotifSoireeComponent
+    NotifSoireeComponent,
+    DetailNotifSoireeComponent,
   ],
   imports: [
     BrowserModule,

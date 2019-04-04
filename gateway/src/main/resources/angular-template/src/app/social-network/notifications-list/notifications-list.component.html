@@ -2,7 +2,7 @@
   <ul class="list-group" >
     <li class="list-group-item" *ngFor="let notif of notifs" >
         <p>{{ notif.message}}</p>
-      <!--<p *ngIf="notif.typeNotif === 'invite_soiree'"></p>-->
+      <a *ngIf="notif.typeNotif === 'invite_soiree'" [routerLink]="['/soiree/detail-soiree', notif.idSoiree]">Accéder à lévènement</a>
 
         <!--<button class="btn btn-success" *ngIf="user.pseudo != friend" (click)="onFollow(user.pseudo)">Follow</button>
         <button class="btn btn-danger" *ngIf="user.pseudo == friend">UnFollow</button>-->

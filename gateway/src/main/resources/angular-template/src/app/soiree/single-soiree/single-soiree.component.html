@@ -23,9 +23,14 @@
 
   </div><br/>
 
+  <h4> Participants à la soirée :</h4>
+  <ul class="nav navbar-nav" *ngFor="let participant of singleSoiree.participant ">
+    <li>{{participant}}</li>
+  </ul><br/>
 
 
-<button class="btn btn-primary" (click)="envoyerNotifsAuxAmis(singleSoiree.id)">Prévenir mes amis</button>
+
+<button class="btn btn-primary" (click)="envoyerNotifsAuxAmis(singleSoiree.id)">Prévenir mes amis</button><br/><br/>
 
 
 <a routerLink="/event-private">Retour à la liste des utilisateurs</a>

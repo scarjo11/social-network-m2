@@ -1,0 +1,5 @@
+1) Démarrer les micro-services sur IntelliJ
+2) Aller dans groupej\gateway\src\main\resources\angular-template
+3) Ouvrir le terminal dans ce dossier
+4) Taper la commande "ng serve"
+5) Ouvrir le navigateur à l'adresse http://localhost:4200/

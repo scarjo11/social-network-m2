@@ -1,0 +1,31 @@
+<h1>{{ singleSoiree.nom }}</h1>
+
+<h4> Evènements privés inclus dans la soirée : </h4>
+<div class="col-md-5 my-1" *ngFor="let item of tabPrivate">
+  <ul class="nav navbar-nav">
+    <li>Titre : {{item.name}}</li>
+    <li>Date : {{item.dateEvent}}</li>
+    <li>Heure : {{item.heure}}</li>
+    <li>Lieu : {{item.lieu}}</li>
+  </ul>
+
+</div><br/>
+
+
+<h4> Evènements OpenData inclus dans la soirée : </h4>
+<div class="col-md-5 my-1" *ngFor="let item of tabOpenData">
+  <ul class="nav navbar-nav">
+    <li>Titre : {{item.titre}}</li>
+    <li>Lieu : {{item.placename}}</li>
+    <li>Lien : <a href="{{item.link}}" target="_blank">{{item.link}}</a></li>
+  </ul>
+
+
+</div><br/>
+
+
+
+<button class="btn btn-primary" (click)="accepterInvitation(singleSoiree.id)">Accepter invitation</button><br/><br/>
+
+
+<a routerLink="/event-private">Retour à la liste des utilisateurs</a>

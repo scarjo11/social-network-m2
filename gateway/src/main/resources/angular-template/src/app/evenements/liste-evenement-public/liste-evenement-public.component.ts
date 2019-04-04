@@ -21,7 +21,7 @@ export class ListeEvenementPublicComponent implements OnInit, OnDestroy {
   eventPrivateSubscription: Subscription;
 
   sessionPseudo = sessionStorage.getItem("userConnected");
-  sessionIdSoiree = sessionStorage.getItem(this.soireeService.idSoiree);
+  sessionIdSoiree = sessionStorage.getItem("idsoiree");
   idEventOpenData: void;
 
 
@@ -54,13 +54,15 @@ export class ListeEvenementPublicComponent implements OnInit, OnDestroy {
     const eventprivee = form.value['eventprivee'];
 
     console.log(eventprivee);
-    this.soireeService.ajouterEventPriveASoiree(+this.sessionIdSoiree, eventprivee);
+    this.soireeService.ajouterEventPriveASoiree(+(this.sessionIdSoiree), eventprivee);
   }
 
   onAjouterEventToSoiree(title: string, placename: string, link: string){
+    console.log("str",this.sessionIdSoiree)
     const newEventPublic = new EventOpenData(title, placename, link);
     console.log("event ici", newEventPublic);
     this.eventService.addEvenementPriveess(newEventPublic);
+    console.log("num",+this.sessionIdSoiree)
     this.eventService.ajouterEventOpenDataASoiree(+this.sessionIdSoiree);
   }
 

@@ -174,8 +174,8 @@ public class SoireeController {
         return ResponseEntity.ok(soiree);
     }
 
-    @PostMapping(value = "soiree/participe/{idSoiree}")
-    public ResponseEntity participerTosoiree(@SessionAttribute(value="pseudo", required = false) String pseudo,
+    @PostMapping(value = "soiree/{idSoiree}/participe/{pseudo}")
+    public ResponseEntity participerTosoiree(@PathVariable("pseudo") String pseudo,
                                    @PathVariable("idSoiree") long idSoiree){
 
          microserviceSoireeProxy.addParticipantToSoiree(idSoiree, pseudo);
