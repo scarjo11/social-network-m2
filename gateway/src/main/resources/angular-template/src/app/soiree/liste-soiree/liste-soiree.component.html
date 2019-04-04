@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-9 col-lg-10 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <div class="alert alert-success" role="alert">
+            <h1 class="card-title text-center">Toutes vos soirées</h1>
+          </div>
+          <div class="row">
+            <div class="col-md-4 my-1" *ngFor="let soiree of soirees">
+              <ul class="nav navbar-nav">
+                <li><a [routerLink]="['/soiree', soiree.id]"><h2> {{soiree.nom}} </h2></a></li>
+              </ul>
+            </div><br/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

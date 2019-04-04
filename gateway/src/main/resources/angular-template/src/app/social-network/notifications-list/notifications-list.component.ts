@@ -24,6 +24,7 @@ export class NotificationsListComponent implements OnInit, OnDestroy {
     this.notifSubscription = this.notifService.notifSubject.subscribe(
       (notif: NotificationEvent[]) => {
         this.notifs = notif;
+        console.log(this.notifs);
       }
     );
     this.notifService.emitNotif();

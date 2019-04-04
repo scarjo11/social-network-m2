@@ -23,7 +23,6 @@ export class DashboardComponent implements OnInit {
     this.notifSubscription = this.notifService.notifSubject.subscribe(
       (notif: NotificationEvent[]) => {
         this.notifs = notif;
-        console.log('taille', this.notifs.length);
       }
     );
     this.notifService.emitNotif();

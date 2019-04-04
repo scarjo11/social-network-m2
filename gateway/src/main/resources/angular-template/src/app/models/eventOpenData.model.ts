@@ -1,13 +1,15 @@
 export class EventOpenData {
 
-  constructor(public id: number,
+  constructor(//public id: number,
               public titre: string,
+              //public address: string,
               public placename: string,
-              public pricing_info: string,
-              public start: string,
+              //public pricing_info: string,
+              //public start: string,
               public link: string,
-              public address: string,
-              public soireeIds: []){
+
+              //public soireeIds: []
+  ){
 
   }
 }

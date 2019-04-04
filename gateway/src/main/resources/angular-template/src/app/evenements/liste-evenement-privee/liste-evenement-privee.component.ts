@@ -20,14 +20,14 @@ export class ListeEvenementPriveeComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.eventService.getAllEventPrivate(this.sessionPseudo)
+    this.eventService.getAllEventPrivate(this.sessionPseudo);
 
     this.eventSubscription = this.eventService.eventPrivateSubject.subscribe(
       (eventsPrivate: EventPrivate[]) => {
         this.eventsPrivate = eventsPrivate;
       }
     );
-    this.eventService.emitEventPrivate()
+    this.eventService.emitEventPrivate();
 
   }
 

@@ -67,6 +67,22 @@ public class EvenementController {
 
     }
 
+    //recuperer  tous les events
+    @ApiOperation(value = "Permet de recuperer un event privee avec son id!")
+    @GetMapping(value = "event/private/id")
+    public Evenement getEventByIdParam(@RequestParam("id") long id){
+        return   facade.getEventPrviateById(id);
+
+    }
+
+    //recuperer  tous les events
+    @ApiOperation(value = "Permet de recuperer un event privee avec son id!")
+    @GetMapping(value = "event/opendata/id")
+    public EvenementOpenData getEventOpenDataByIdParam(@RequestParam("id") long id){
+        return   facade.getEventOpenDataById(id);
+
+    }
+
     //recuperer  tous les opendata events
     @ApiOperation(value = "Permet de recuperer un evenement opendata grace à son id!")
     @GetMapping(value = "event/openData/{id}")

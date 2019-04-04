@@ -17,9 +17,11 @@ export class EventService {
   eventPrivateSubject = new Subject<EventPrivate[]>();
 
   eventsOpenData: EventOpenData[] = [];
+  singleEventOpenData: EventOpenData;
   eventOpenDataSubject = new Subject<EventOpenData[]>();
 
   sessionPseudo = sessionStorage.getItem("userConnected");
+  idSoiree = '';
 
   emitEventPrivate() {
     this.eventPrivateSubject.next(this.eventsPrivate.slice());
@@ -69,6 +71,25 @@ export class EventService {
     );
 }
 
+getEventOpenData(id: number){
+  let promise = new Promise((resolve, reject) => {
+    let url = "http://localhost:8095/event/opendata/" + id;
+    this.httpClient.get<EventOpenData>(url)
+      .toPromise()
+      .then(
+        res => { // Success
+          this.singleEventOpenData = res;
+          resolve(res);
+        },
+        msg => { // Error
+          reject(msg);
+        }
+      );
+  });
+  return promise;
+
+}
+
   getEventPrivate(id: number){
 
     let promise = new Promise((resolve, reject) => {
@@ -80,7 +101,7 @@ export class EventService {
           res => { // Success
             this.singleEventPrivate = res;
             resolve(res);
-            console.log("singleEvent", this.singleEventPrivate)
+
           },
           msg => { // Error
             reject(msg);
@@ -103,7 +124,7 @@ export class EventService {
 
     let url = "https://data.orleans-metropole.fr/api/records/1.0/search/?dataset=evenements-publics-openagenda&facet=tags&facet=placename&facet=department&facet=region&facet=city&facet=pricing_info&facet=updated_at&facet=city_district&refine.date_start="+latest_today;
 
-    this.httpClient.get<any[]>(url).subscribe(
+    this.httpClient.get<any>(url).subscribe(
       res => {
         const recupTheBall = res.records;
 
@@ -118,6 +139,37 @@ export class EventService {
         alert('ERROR !');
       }
     );
+  }
+
+  addEvenementPriveess(eventPublic: EventOpenData){
+    let url = "http://localhost:8095/event/openData";
+
+    this.httpClient.post<any>(url, eventPublic).subscribe(
+      res => {
+        sessionStorage.removeItem(this.idSoiree);
+        sessionStorage.setItem(this.idSoiree, res);
+      },
+      err => {
+        console.log('ERROR EVENT openData ! !');
+      }
+    );
+  }
+
+  ajouterEventOpenDataASoiree(idSoiree: number){
+
+    const idEventOpenData = sessionStorage.getItem(this.idSoiree);
+
+    let url = "http://localhost:8095/soiree/"+idSoiree+"/eventopendata/"+idEventOpenData;
+
+    this.httpClient.put<any>(url, idSoiree).subscribe(
+      () => {
+        console.log('Evenement public ajouté a la soirée !');
+      },
+      (error) => {
+        console.log('Erreur dajout evenement public ! ') + error;
+      }
+    );
+
   }
 
 }

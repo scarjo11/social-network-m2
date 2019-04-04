@@ -34,6 +34,9 @@ import { NotificationsListComponent } from './social-network/notifications-list/
 import {EventService} from "./services/event.service";
 import { SingleEventPrivateComponent } from './evenements/single-event-private/single-event-private.component';
 import {DatePipe} from "@angular/common";
+import {SoireeService} from "./services/soiree.service";
+import { ListeSoireeComponent } from './soiree/liste-soiree/liste-soiree.component';
+import { NotifSoireeComponent } from './soiree/notif-soiree/notif-soiree.component';
 
 const appRoutes: Routes = [
   {path: 'auth', component: AuthentificationComponent},
@@ -55,6 +58,7 @@ const appRoutes: Routes = [
 
   {path: 'create-soiree', component: CreateSoireeComponent},
   {path: 'list-participant-soiree', component: ListeParticipantSoireeComponent},
+  {path: 'list-soiree', component: ListeSoireeComponent},
   {path: 'soiree/:id', component: SingleSoireeComponent},
 
   {path: '', component: AuthentificationComponent},
@@ -84,7 +88,9 @@ const appRoutes: Routes = [
     SingleUserFollowComponent,
     SingleUserUnfollowComponent,
     NotificationsListComponent,
-    SingleEventPrivateComponent
+    SingleEventPrivateComponent,
+    ListeSoireeComponent,
+    NotifSoireeComponent
   ],
   imports: [
     BrowserModule,
@@ -101,6 +107,7 @@ const appRoutes: Routes = [
     NotifService,
     FollowService,
     EventService,
+    SoireeService,
     DatePipe
   ],
   bootstrap: [AppComponent]

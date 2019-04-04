@@ -58,9 +58,9 @@ public class SoireeController {
     }
 
 
-    @PostMapping(value = "soiree/notification/{id}")
+    @PostMapping(value = "soiree/{id}/notification/{pseudo}")
     public ResponseEntity notifSoireeToFriends( @PathVariable("id") long id,
-                            @SessionAttribute(value="pseudo", required = false) String pseudo){
+                                                @PathVariable("pseudo") String pseudo){
 
         Collection<String> friend  = microserviceUserProxy.getFriendPseudo(pseudo);
         SoireeBean soiree = microserviceSoireeProxy.getSoireeById(id);
@@ -102,7 +102,7 @@ public class SoireeController {
 
 
     @GetMapping(value = "soiree/{idSoiree}")
-    public ResponseEntity<Map<String, Object>> detailSoiree(Model model, @PathVariable("idSoiree") long idSoiree,
+    public ResponseEntity<SoireeBean> detailSoiree(Model model, @PathVariable("idSoiree") long idSoiree,
                                                             @SessionAttribute(value="pseudo", required = false) String pseudo){
 
         Map<String, Object> data  = new HashMap<>();
@@ -115,7 +115,7 @@ public class SoireeController {
 
 
         }
-        data.put("eventPrivate", eventOfSoiree);
+       // data.put("eventPrivate", eventOfSoiree);
 
         for (long id: soiree.getEvenementsExterne()) {
             eventOpenDataOfSoiree.add(microserviceEventProxy.getEventOpenDataById(id));
@@ -123,7 +123,7 @@ public class SoireeController {
 
         }
 
-        data.put("eventOpenData", eventOpenDataOfSoiree);
+       // data.put("eventOpenData", eventOpenDataOfSoiree);
        /* model.addAttribute("soiree", soiree);
         model.addAttribute("participants", soiree.getParticipant());
         model.addAttribute("eventPrivateOfSoiree", eventOfSoiree);
@@ -131,7 +131,7 @@ public class SoireeController {
         model.addAttribute("pseudo", pseudo);
         model.addAttribute("notification", new NotificationBean());*/
 
-        return ResponseEntity.ok(data);
+        return ResponseEntity.ok(soiree);
     }
 
     @PutMapping(value = "soiree/{idSoiree}/eventPrivate/{idEventPrivate}")

@@ -65,5 +65,13 @@ public class EventController {
         return ResponseEntity.ok(events);
     }
 
+    @GetMapping(value = "event/opendata/{id}")
+    public ResponseEntity<EvenementOpenDataBean> getEventOpenDataById(@PathVariable("id") long id){
+
+        EvenementOpenDataBean events =  microserviceEventProxy.getEventOpenDataById(id);
+
+        return ResponseEntity.ok(events);
+    }
+
 
 }
