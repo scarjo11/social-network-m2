@@ -5,10 +5,9 @@
 #RUN ["mvn", "package"]
 
 
-FROM openjdk:8-jre-alpine
-COPY target/eureka-server-0.0.1-SNAPSHOT.jar /app/
-
-EXPOSE 8092
-
-
+FROM java:8-jre
+COPY ./target/eureka-server-0.0.1-SNAPSHOT.jar /app/
+#COPY wait-for-it.sh /app
+#CMD ["cd", "/app", "&&", "./wait-for-it.sh", "config-server:8090"]
 CMD ["java", "-Xmx200m", "-jar", "/app/eureka-server-0.0.1-SNAPSHOT.jar"]
+EXPOSE 8092
