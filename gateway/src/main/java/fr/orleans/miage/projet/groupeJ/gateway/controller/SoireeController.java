@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by wilfrid on 17/03/2019.
@@ -98,10 +100,12 @@ public class SoireeController {
     }
 
 
-    @GetMapping(value = "soiree/{idSoiree}")
-    public ResponseEntity<SoireeBean> detailSoiree(Model model, @PathVariable("idSoiree") long idSoiree,
-                            @SessionAttribute(value="pseudo", required = false) String pseudo){
 
+    @GetMapping(value = "soiree/{idSoiree}")
+    public ResponseEntity<Map<String, Object>> detailSoiree(Model model, @PathVariable("idSoiree") long idSoiree,
+                                                            @SessionAttribute(value="pseudo", required = false) String pseudo){
+
+        Map<String, Object> data  = new HashMap<>();
         SoireeBean soiree =  microserviceSoireeProxy.getSoireeById(idSoiree);
         Collection<EvenementBean> eventOfSoiree = new ArrayList<>();
         Collection<EvenementOpenDataBean> eventOpenDataOfSoiree = new ArrayList<>();
@@ -111,6 +115,7 @@ public class SoireeController {
 
 
         }
+        data.put("eventPrivate", eventOfSoiree);
 
         for (long id: soiree.getEvenementsExterne()) {
             eventOpenDataOfSoiree.add(microserviceEventProxy.getEventOpenDataById(id));
@@ -118,6 +123,7 @@ public class SoireeController {
 
         }
 
+        data.put("eventOpenData", eventOpenDataOfSoiree);
        /* model.addAttribute("soiree", soiree);
         model.addAttribute("participants", soiree.getParticipant());
         model.addAttribute("eventPrivateOfSoiree", eventOfSoiree);
@@ -125,7 +131,7 @@ public class SoireeController {
         model.addAttribute("pseudo", pseudo);
         model.addAttribute("notification", new NotificationBean());*/
 
-        return ResponseEntity.ok(soiree);
+        return ResponseEntity.ok(data);
     }
 
     @PutMapping(value = "soiree/{idSoiree}/eventPrivate/{idEventPrivate}")
